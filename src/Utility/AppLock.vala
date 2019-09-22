@@ -32,9 +32,9 @@ public class AppLock : GLib.Object {
 	public string lock_file = "";
 	public string lock_message = "";
 	
-	public bool create(string app_name, string message){
+	public bool create(string lck_name, string message){
 
-		var lock_dir = "/var/run/lock/%s".printf(app_name);
+		var lock_dir = "/var/run/lock/%s".printf(lck_name);
 		dir_create(lock_dir);
 		lock_file = path_combine(lock_dir, "lock");
 		

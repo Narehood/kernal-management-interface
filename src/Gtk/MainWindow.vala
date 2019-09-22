@@ -33,10 +33,10 @@ using TeeJee.System;
 using TeeJee.Misc;
 
 public class MainWindow : Gtk.Window{
-	
+
 	private Gtk.Box vbox_main;
 	private Gtk.Box hbox_list;
-	
+
 	private Gtk.TreeView tv;
 	private Gtk.Button btn_refresh;
 	private Gtk.Button btn_install;
@@ -44,38 +44,38 @@ public class MainWindow : Gtk.Window{
 	private Gtk.Button btn_purge;
 	private Gtk.Button btn_changes;
 	private Gtk.Label lbl_info;
-	
+
 	// helper members
 
-	private int window_width = 600;
-	private int window_height = 400;
+	private int window_width = 800;
+	private int window_height = 600;
 	private uint tmr_init = -1;
 
 	private Gee.ArrayList<LinuxKernel> selected_kernels;
-	
-	public MainWindow() {
-		
-		title = AppName; //"%s (Ukuu) v%s".printf(AppName, AppVersion);
-        window_position = WindowPosition.CENTER;
-        icon = get_app_icon(16,".svg");
 
-        // vbox_main
-        vbox_main = new Gtk.Box(Orientation.VERTICAL, 6);
-        vbox_main.margin = 6;
-        vbox_main.set_size_request(window_width, window_height);
-        add (vbox_main);
+	public MainWindow() {
+
+		title = BRANDING_LONGNAME;
+		window_position = WindowPosition.CENTER;
+		icon = get_app_icon(16,".svg");
+
+		// vbox_main
+		vbox_main = new Gtk.Box(Orientation.VERTICAL, 6);
+		vbox_main.margin = 6;
+		vbox_main.set_size_request(window_width, window_height);
+		add (vbox_main);
 
 		selected_kernels = new Gee.ArrayList<LinuxKernel>();
-		
-        init_ui();
+
+		init_ui();
 
 		tmr_init = Timeout.add(100, init_delayed);
 	}
 
 	private bool init_delayed() {
-		
+
 		/* any actions that need to run after window has been displayed */
-		
+
 		if (tmr_init > 0) {
 			Source.remove(tmr_init);
 			tmr_init = 0;
@@ -87,7 +87,7 @@ public class MainWindow : Gtk.Window{
 
 		switch (App.command){
 		case "install":
-		
+
 			LinuxKernel kern_requested = null;
 			foreach(var kern in LinuxKernel.kernel_list){
 				if (kern.name == App.requested_version){
@@ -105,17 +105,12 @@ public class MainWindow : Gtk.Window{
 			else{
 				install(kern_requested);
 			}
-			
+
 			break;
-			
+
 		case "notify":
 
 			notify_user();
-			break;
-
-		default:
-
-			show_paid_version_message();
 			break;
 		}
 
@@ -127,14 +122,14 @@ public class MainWindow : Gtk.Window{
 		init_actions();
 		init_infobar();
 	}
-	
+
 	private void init_treeview(){
 
 		// hbox
 		hbox_list = new Gtk.Box(Orientation.HORIZONTAL, 6);
 		//hbox.margin = 6;
 		vbox_main.add(hbox_list);
-		
+
 		//add treeview
 		tv = new TreeView();
 		tv.get_selection().mode = SelectionMode.MULTIPLE;
@@ -144,19 +139,19 @@ public class MainWindow : Gtk.Window{
 		tv.row_activated.connect(tv_row_activated);
 
 		tv.get_selection().changed.connect(tv_selection_changed);
-			
+
 		var scrollwin = new ScrolledWindow(tv.get_hadjustment(), tv.get_vadjustment());
 		scrollwin.set_shadow_type (ShadowType.ETCHED_IN);
 		scrollwin.add (tv);
 		hbox_list.add(scrollwin);
-		
+
 		//column
 		var col = new TreeViewColumn();
 		col.title = _("Kernel");
 		col.resizable = true;
 		col.min_width = 150;
 		tv.append_column(col);
-		
+
 		// cell icon
 		var cell_pix = new Gtk.CellRendererPixbuf ();
 		cell_pix.xpad = 4;
@@ -168,7 +163,7 @@ public class MainWindow : Gtk.Window{
 			(cell as Gtk.CellRendererPixbuf).pixbuf = pix;
 			//(cell as Gtk.CellRendererPixbuf).visible = !(App.hide_unstable);
 		});
-		
+
 		//cell text
 		var cellText = new CellRendererText();
 		cellText.ellipsize = Pango.EllipsizeMode.END;
@@ -195,7 +190,7 @@ public class MainWindow : Gtk.Window{
 			model.get (iter, 0, out kern, -1);
 			(cell as Gtk.CellRendererText).text = kern.name;
 		});
-		
+
 		//column
 		col = new TreeViewColumn();
 		col.title = _("Status");
@@ -212,7 +207,7 @@ public class MainWindow : Gtk.Window{
 			model.get (iter, 0, out kern, -1);
 			(cell as Gtk.CellRendererText).text = kern.is_running ? _("Running") : (kern.is_installed ? _("Installed") : "");
 		});
-		
+
 		//column
 		col = new TreeViewColumn();
 		col.title = "";
@@ -256,7 +251,7 @@ public class MainWindow : Gtk.Window{
 			selected_kernels.add(kern);
 			//log_msg("size=%d".printf(selected_kernels.size));
 		}
-		
+
 		set_button_state();
 	}
 
@@ -266,20 +261,20 @@ public class MainWindow : Gtk.Window{
 		Gdk.Pixbuf pix_ubuntu = null;
 		Gdk.Pixbuf pix_mainline = null;
 		Gdk.Pixbuf pix_mainline_rc = null;
-		
+
 		try {
-			pix_ubuntu = new Gdk.Pixbuf.from_file ("/usr/share/ukuu/images/ubuntu-logo.png");
+			pix_ubuntu = new Gdk.Pixbuf.from_file ("/usr/share/" + BRANDING_SHORTNAME + "/images/ubuntu-logo.png");
 
-			pix_mainline = new Gdk.Pixbuf.from_file ("/usr/share/ukuu/images/tux.png");
+			pix_mainline = new Gdk.Pixbuf.from_file ("/usr/share/" + BRANDING_SHORTNAME + "/images/tux.png");
 
-			pix_mainline_rc = new Gdk.Pixbuf.from_file ("/usr/share/ukuu/images/tux-red.png");
+			pix_mainline_rc = new Gdk.Pixbuf.from_file ("/usr/share/" + BRANDING_SHORTNAME + "/images/tux-red.png");
 		}
 		catch (Error e) {
 			log_error (e.message);
 		}
 
 		var kern_4 = new LinuxKernel.from_version("4.0");
-		
+
 		TreeIter iter;
 		bool odd_row = false;
 		foreach(var kern in LinuxKernel.kernel_list) {
@@ -294,7 +289,7 @@ public class MainWindow : Gtk.Window{
 			}
 
 			odd_row = !odd_row;
-			
+
 			//add row
 			model.append(out iter);
 			model.set (iter, 0, kern);
@@ -348,23 +343,23 @@ public class MainWindow : Gtk.Window{
 		var button = new Gtk.Button.with_label (_("Refresh"));
 		hbox.pack_start (button, true, true, 0);
 		btn_refresh = button;
-		
+
 		button.clicked.connect(() => {
 
 			if (!check_internet_connectivity()){
 				gtk_messagebox(_("No Internet"), _("Internet connection is not active"), this, true);
 				return;
 			}
-		
+
 			refresh_cache();
 			tv_refresh();
 		});
-		
+
 		// install
 		button = new Gtk.Button.with_label (_("Install"));
 		hbox.pack_start (button, true, true, 0);
 		btn_install = button;
-		
+
 		button.clicked.connect(() => {
 			if (selected_kernels.size == 1){
 				install(selected_kernels[0]);
@@ -381,7 +376,7 @@ public class MainWindow : Gtk.Window{
 		button = new Gtk.Button.with_label (_("Remove"));
 		hbox.pack_start (button, true, true, 0);
 		btn_remove = button;
-		
+
 		button.clicked.connect(() => {
 			if (selected_kernels.size == 0){
 				gtk_messagebox(_("Not Selected"),_("Select the kernels to remove"), this, true);
@@ -389,11 +384,11 @@ public class MainWindow : Gtk.Window{
 			else if (selected_kernels.size > 0){
 				
 				var term = new TerminalWindow.with_parent(this, false, true);
-				
+
 				term.script_complete.connect(()=>{
 					term.allow_window_close();
 				});
-				
+
 				term.destroy.connect(()=>{
 					this.present();
 					refresh_cache();
@@ -402,7 +397,7 @@ public class MainWindow : Gtk.Window{
 
 				string sh = "";
 				sh += "pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "; 
-				sh += "ukuu --user %s".printf(App.user_login);
+				sh += BRANDING_SHORTNAME+" --user %s".printf(App.user_login);
 				if (LOG_DEBUG){
 					sh += " --debug";
 				}
@@ -416,12 +411,12 @@ public class MainWindow : Gtk.Window{
 				}
 
 				sh += " --remove %s\n".printf(names);
-				
+
 				sh += "echo ''\n";
 				sh += "echo 'Close window to exit...'\n";
 
 				this.hide();
-				
+
 				term.execute_script(save_bash_script_temp(sh));
 			}
 		});
@@ -431,15 +426,15 @@ public class MainWindow : Gtk.Window{
 		button.set_tooltip_text(_("Remove installed kernels older than running kernel"));
 		hbox.pack_start (button, true, true, 0);
 		btn_purge = button;
-		
+
 		button.clicked.connect(() => {
 
 			var term = new TerminalWindow.with_parent(this, false, true);
-			
+
 			term.script_complete.connect(()=>{
 				term.allow_window_close();
 			});
-			
+
 			term.destroy.connect(()=>{
 				this.present();
 				refresh_cache();
@@ -447,8 +442,8 @@ public class MainWindow : Gtk.Window{
 			});
 
 			string sh = "";
-			sh += "pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "; 
-			sh += "ukuu --user %s".printf(App.user_login);
+			sh += "pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY http_proxy=$http_proxy https_proxy=$https_proxy HTTP_PROXY=$HTTP_PROXY HTTPS_PROXY=$HTTPS_PROXY ";
+			sh += BRANDING_SHORTNAME+" --user "+App.user_login;
 			if (LOG_DEBUG){
 				sh += " --debug";
 			}
@@ -456,12 +451,12 @@ public class MainWindow : Gtk.Window{
 			sh += " --purge-old-kernels\n";
 
 			log_debug(sh);
-			
+
 			sh += "echo ''\n";
 			sh += "echo 'Close window to exit...'\n";
 
 			this.hide();
-			
+
 			term.execute_script(save_bash_script_temp(sh));
 		});
 
@@ -469,7 +464,7 @@ public class MainWindow : Gtk.Window{
 		button = new Gtk.Button.with_label (_("Changes"));
 		hbox.pack_start (button, true, true, 0);
 		btn_changes = button;
-		
+
 		button.clicked.connect(() => {
 			if ((selected_kernels.size == 1) && file_exists(selected_kernels[0].changes_file)){
 				xdg_open(selected_kernels[0].changes_file);
@@ -484,7 +479,7 @@ public class MainWindow : Gtk.Window{
 
 			bool prev_hide_older = LinuxKernel.hide_older;
 			bool prev_hide_unstable = LinuxKernel.hide_unstable;
-			
+
 			var dlg = new SettingsDialog.with_parent(this);
 			dlg.run();
 			dlg.destroy();
@@ -493,17 +488,8 @@ public class MainWindow : Gtk.Window{
 				|| ((prev_hide_unstable == true) && (LinuxKernel.hide_unstable == false))){
 				refresh_cache();
 			}
-			
+
 			tv_refresh();
-		});
-
-		// donate
-		button = new Gtk.Button.with_label (_("Donate"));
-		hbox.pack_start (button, true, true, 0);
-
-		button.clicked.connect(() => {
-			var dlg = new DonationWindow(this);
-			dlg.show_all();
 		});
 
 		// about
@@ -514,42 +500,45 @@ public class MainWindow : Gtk.Window{
 	}
 
 	private void btn_about_clicked () {
-		
+
 		var dialog = new AboutWindow();
 		dialog.set_transient_for (this);
 
+		// FIXME - this should come from the AUTHORS file, or from git
 		dialog.authors = {
-			"Tony George:teejeetech@gmail.com"
+			"Tony George:teejeetech@gmail.com",
+			BRANDING_AUTHORNAME+":"+BRANDING_AUTHOREMAIL
 		};
 
 		dialog.third_party = {
 			"Elementary project (various icons):github.com/elementary/icons",
 			"Tango project (various icons):tango.freedesktop.org/Tango_Desktop_Project"
 		};
-		
+		// FIXME - generate from files
 		dialog.translators = {
 			"Åke Engelbrektson (Swedish):eson@svenskasprakfiler.se",
 			"Иннусик (Russian):slavusik1988@gmail.com",
 			"Waldemar Konik (Polish):valdi74@github",
 			"gogo (Croatian):trebelnik2@gmail.com",
 			"Adolfo Jayme Barrientos (Spanish):fitojb@ubuntu.com",
-            "yolateng0 (French):github.com/yolateng0",
-            "Hugo Posnic (French):hugo.posnic@gmail.com"
+			"yolateng0 (French):github.com/yolateng0",
+			"Hugo Posnic (French):hugo.posnic@gmail.com",
+			"Faust3000 (Russian):slavusik1988@gmail.com",
+			"Gökhan GÖKKAYA (Turkish):gokhanlnx@gmail.com"
 		};
 
 		dialog.documenters = null;
 		dialog.artists = null;
-		dialog.donations = null;
 
-		dialog.program_name = AppName;
+		dialog.program_name = BRANDING_LONGNAME;
 		dialog.comments = _("Kernel upgrade utility for Ubuntu-based distributions");
-		dialog.copyright = "Copyright © 2012-17 Tony George (%s)".printf(AppAuthorEmail);
-		dialog.version = AppVersion;
+		dialog.copyright = "Original: \"ukuu\" © 2015-18 Tony George\nForked: \""+BRANDING_SHORTNAME+"\" 2019 "+BRANDING_AUTHORNAME+" ("+BRANDING_AUTHOREMAIL+")";
+		dialog.version = BRANDING_VERSION;
 		dialog.logo = get_app_icon(128);
 
 		dialog.license = "This program is free for personal and commercial use and comes with absolutely no warranty. You use this program entirely at your own risk. The author will not be liable for any damages arising from the use of this program.";
-		dialog.website = "http://teejeetech.in";
-		dialog.website_label = "http://teejeetech.blogspot.in";
+		dialog.website = BRANDING_WEBSITE;
+		dialog.website_label = BRANDING_WEBSITE;
 
 		dialog.initialize();
 		dialog.show_all();
@@ -563,27 +552,27 @@ public class MainWindow : Gtk.Window{
 		}
 
 		if (App.command != "list"){
-			
+
 			// refresh without GUI and return -----------------
-			
+
 			LinuxKernel.query(false);
 
 			while (LinuxKernel.task_is_running) {
-				
+
 				sleep(200);
 				gtk_do_events();
 			}
-			
+
 			return;
 		}
-		
+
 		string message = _("Refreshing...");
 		var dlg = new ProgressWindow.with_parent(this, message, true);
 		dlg.show_all();
 		gtk_do_events();
 
 		// TODO: Check if kernel.ubuntu.com is down
-		
+
 		LinuxKernel.query(false);
 
 		var timer = timer_start();
@@ -593,13 +582,13 @@ public class MainWindow : Gtk.Window{
 
 		string msg_remaining = "";
 		long count = 0;
-		
+
 		while (LinuxKernel.task_is_running) {
 
 			if (App.cancelled){
 				App.exit_app(1);
 			}
-			
+
 			App.status_line = LinuxKernel.status_line;
 			App.progress_total = LinuxKernel.progress_total;
 			App.progress_count = LinuxKernel.progress_count;
@@ -613,17 +602,17 @@ public class MainWindow : Gtk.Window{
 			}
 
 			if (App.progress_total > 0){
-				
-				dlg.update_message("%s %lld/%lld (%s)".printf(
-					message, App.progress_count, App.progress_total, msg_remaining));
+				dlg.update_message("%s %s/%s (%s)".printf(message, App.progress_count.to_string(), App.progress_total.to_string(), msg_remaining));
 			}
-					
+
 			dlg.update_status_line();
-			
-			dlg.update_progressbar();
-			
-			dlg.sleep(200);
+
+			// FIXME - GTK error messages, and progressbar is always 100%
+			//dlg.update_progressbar();
+
 			gtk_do_events();
+
+			dlg.sleep(200);
 
 			count++;
 		}
@@ -636,7 +625,7 @@ public class MainWindow : Gtk.Window{
 
 
 	private void init_infobar(){
-		
+
 		// scrolled
 		var scrolled = new ScrolledWindow(null, null);
 		scrolled.set_shadow_type (ShadowType.ETCHED_IN);
@@ -654,7 +643,7 @@ public class MainWindow : Gtk.Window{
 		var img_status = new Gtk.Image();
 		img_status.pixbuf = get_shared_icon_pixbuf("", "tux.svg", 64);
 		img_status.margin = 6;
-        hbox.add(img_status);
+		hbox.add(img_status);
 
 		lbl_info = new Gtk.Label("");
 		lbl_info.margin = 6;
@@ -663,9 +652,9 @@ public class MainWindow : Gtk.Window{
 	}
 
 	private void set_infobar(){
-		
+
 		if (LinuxKernel.kernel_active != null){
-			
+
 			lbl_info.label = "Running <b>Linux %s</b>".printf(LinuxKernel.kernel_active.version_main);
 
 			if (LinuxKernel.kernel_active.is_mainline){
@@ -674,7 +663,7 @@ public class MainWindow : Gtk.Window{
 			else{
 				lbl_info.label += " (ubuntu)";
 			}
-			
+
 			if (LinuxKernel.kernel_latest_stable.compare_to(LinuxKernel.kernel_active) > 0){
 				lbl_info.label += " ~ " + "<b>Linux %s</b> available".printf(
 					LinuxKernel.kernel_latest_stable.version_main);
@@ -697,19 +686,17 @@ public class MainWindow : Gtk.Window{
 			gtk_messagebox(_("No Internet"), _("Internet connection is not active"), this, true);
 			return;
 		}
-		
+
 		this.hide();
-		
+
 		var term = new TerminalWindow.with_parent(this, false, true);
-				
+
 		term.script_complete.connect(()=>{
 			term.allow_window_close();
 		});
-		
+
 		term.destroy.connect(()=>{
-			
-			show_grub_message();
-			
+
 			if (App.command == "list"){
 				this.present();
 				refresh_cache();
@@ -724,12 +711,12 @@ public class MainWindow : Gtk.Window{
 
 		string sh = "";
 		sh += "pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY ";
-		sh += "ukuu --user %s".printf(App.user_login);
+		sh += BRANDING_SHORTNAME+" --user "+App.user_login;
 		if (LOG_DEBUG){
 			sh += " --debug";
 		}
 		sh += " --install %s\n".printf(kern.name);
-			
+
 		sh += "echo ''\n";
 		sh += "echo 'Close window to exit...'\n";
 
@@ -741,116 +728,71 @@ public class MainWindow : Gtk.Window{
 		LinuxKernel.check_updates();
 
 		var kern = LinuxKernel.kernel_update_major;
-		
+
 		if ((kern != null) && App.notify_major){
-			
+
 			var title = "Linux v%s Available".printf(kern.version_main);
 			var message = "Major update available for installation";
 
 			if (App.notify_bubble){
-				
+
 				OSDNotify.notify_send(title,message,3000,"normal","info");
 			}
-			
+
 			if (App.notify_dialog){
-				
+
 				var win = new UpdateNotificationWindow(
-					AppName,
+					BRANDING_LONGNAME,
 					"<span size=\"large\" weight=\"bold\">%s</span>\n\n%s".printf(title, message),
 					null,
 					kern);
-					
+
 				win.destroy.connect(()=>{
 					log_debug("UpdateNotificationWindow destroyed");
 					Gtk.main_quit();
 				});
-				
+
 				Gtk.main(); // start event loop
 			}
-			
+
 			log_msg(title);
 			log_msg(message);
 			return;
 		}
 
 		kern = LinuxKernel.kernel_update_minor;
-		
+
 		if ((kern != null) && App.notify_minor){
-			
+
 			var title = "Linux v%s Available".printf(kern.version_main);
 			var message = "Minor update available for installation";
 
 			if (App.notify_bubble){
-				
+
 				OSDNotify.notify_send(title,message,3000,"normal","info");
 			}
-			
+
 			if (App.notify_dialog){
-				
+
 				var win = new UpdateNotificationWindow(
-					AppName,
+					BRANDING_LONGNAME,
 					"<span size=\"large\" weight=\"bold\">%s</span>\n\n%s".printf(title, message),
 					this,
 					kern);
-					
+
 				win.destroy.connect(()=>{
 					log_debug("UpdateNotificationWindow destroyed");
 					Gtk.main_quit();
 				});
-				
+
 				Gtk.main(); // start event loop
 			}
-			
+
 			log_msg(title);
 			log_msg(message);
 			return;
 		}
 
-		// dummy
-
-		/*
-		var title = "Linux v4.7 Available";
-		var message = "Minor update available for installation";
-		
-		if (App.notify_bubble){
-			OSDNotify.notify_send(title,message,3000,"normal","info");
-		}
-		
-		if (App.notify_dialog){
-			
-			var win = new UpdateNotificationWindow(
-					AppName,
-					"<span size=\"large\" weight=\"bold\">%s</span>\n\n%s".printf(title, message),
-					null);
-					
-			win.destroy.connect(Gtk.main_quit);
-			Gtk.main(); // start event loop
-		}
-		* */
-
 		log_msg(_("No updates found"));
-	}
-
-	public void show_grub_message(){
-		
-		string title = _("Booting previous kernels");
-		string msg = _("Mainline kernels can sometimes cause problems if there are proprietary drivers installed on your system. These issues include:\n\n▰ WiFi not working\n▰ Black screen on startup\n▰ Random system freeze\n\nIf you face any of these issues there is no need to panic.\n\n▰ Reboot your system\n▰ Select 'Advanced Boot Options' from the GRUB boot menu\n▰ Select an older kernel from the list displayed on this screen\n▰ Your system will boot using the selected kernel\n▰ You can now uninstall the kernel that is causing issues\n");
-		gtk_messagebox(title, msg, this, false);
-
-		if (App.command != "list"){
-			Gtk.main_quit();
-			App.exit_app(0);
-		}
-	}
-
-	public void show_paid_version_message(){
-		
-		if (!App.message_shown){
-			
-			App.message_shown = true;
-			App.save_app_config();
-
-			var win = new VersionMessageWindow(this);
-		}
 	}
 }

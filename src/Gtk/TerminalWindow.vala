@@ -17,10 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
- *
- *
  */
-
 
 using Gtk;
 using Gee;
@@ -111,47 +108,30 @@ public class TerminalWindow : Gtk.Window {
 		scroll_win.hscrollbar_policy = PolicyType.AUTOMATIC;
 		scroll_win.vscrollbar_policy = PolicyType.AUTOMATIC;
 		vbox_main.add(scroll_win);
-		
-		#if VTE_291
-		
+
 		term.input_enabled = true;
 		term.backspace_binding = Vte.EraseBinding.AUTO;
 		term.cursor_blink_mode = Vte.CursorBlinkMode.SYSTEM;
 		term.cursor_shape = Vte.CursorShape.UNDERLINE;
 		term.rewrap_on_resize = true;
 		
-		#endif
-		
 		term.scroll_on_keystroke = true;
 		term.scroll_on_output = true;
 		term.scrollback_lines = 100000;
 
 		// colors -----------------------------
-		
-		#if VTE_291
-		
+
 		var color = Gdk.RGBA();
 		color.parse("#FFFFFF");
 		term.set_color_foreground(color);
 
 		color.parse("#404040");
 		term.set_color_background(color);
-		
-		#else
-		
-		Gdk.Color color;
-		Gdk.Color.parse("#FFFFFF", out color);
-		term.set_color_foreground(color);
 
-		Gdk.Color.parse("#404040", out color);
-		term.set_color_background(color);
-
-		#endif
-		
 		// grab focus ----------------
-		
+
 		term.grab_focus();
-		
+
 		// add cancel button --------------
 
 		var hbox = new Gtk.Box(Orientation.HORIZONTAL, 6);
@@ -199,9 +179,7 @@ public class TerminalWindow : Gtk.Window {
 		try{
 
 			is_running = true;
-			
-			#if VTE_291
-			
+
 			term.spawn_sync(
 				Vte.PtyFlags.DEFAULT, //pty_flags
 				TEMP_DIR, //working_directory
@@ -213,19 +191,6 @@ public class TerminalWindow : Gtk.Window {
 				null
 			);
 
-			#else
-
-			term.fork_command_full(
-				Vte.PtyFlags.DEFAULT, //pty_flags
-				TEMP_DIR, //working_directory
-				argv, //argv
-				env, //env
-				GLib.SpawnFlags.SEARCH_PATH, //spawn_flags
-				null, //child_setup
-				out child_pid
-			);
-
-			#endif
 		}
 		catch (Error e) {
 			log_error (e.message);
@@ -236,9 +201,14 @@ public class TerminalWindow : Gtk.Window {
 		btn_cancel.sensitive = false;
 		process_quit(child_pid);
 	}
-	
+
 	public void execute_command(string command){
+#if GLIB_LT_2_58
 		term.feed_child("%s\n".printf(command), -1);
+#else
+		string c = command.concat("\n");
+		term.feed_child(c.to_utf8());
+#endif
 	}
 
 	public void execute_script(string script_path, bool wait = false){
@@ -250,9 +220,7 @@ public class TerminalWindow : Gtk.Window {
 		try{
 
 			is_running = true;
-			
-			#if VTE_291
-			
+
 			term.spawn_sync(
 				Vte.PtyFlags.DEFAULT, //pty_flags
 				TEMP_DIR, //working_directory
@@ -263,20 +231,6 @@ public class TerminalWindow : Gtk.Window {
 				out child_pid,
 				null
 			);
-
-			#else
-
-			term.fork_command_full(
-				Vte.PtyFlags.DEFAULT, //pty_flags
-				TEMP_DIR, //working_directory
-				argv, //argv
-				env, //env
-				GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD, //spawn_flags
-				null, //child_setup
-				out child_pid
-			);
-
-			#endif
 
 			term.watch_child(child_pid);
 	
@@ -294,15 +248,9 @@ public class TerminalWindow : Gtk.Window {
 		}
 	}
 
-	#if VTE_291
 	public void script_exit(int status){
-	#else
-	public void script_exit(){
-	#endif
 
 		is_running = false;
-
-		Process.close_pid(child_pid); //required on Windows, doesn't do anything on Unix
 
 		btn_cancel.visible = false;
 		btn_close.visible = true;

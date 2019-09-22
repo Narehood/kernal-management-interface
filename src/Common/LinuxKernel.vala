@@ -38,7 +38,7 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 	// static
 	
 	public static string URI_KERNEL_UBUNTU_MAINLINE = "http://kernel.ubuntu.com/~kernel-ppa/mainline/";
-	public static string CACHE_DIR = "/var/cache/ukuu";
+	public static string CACHE_DIR;
 	public static string NATIVE_ARCH;
 	public static string LINUX_DISTRO;
 	public static string RUNNING_KERNEL;
@@ -47,9 +47,6 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 	
 	public static bool hide_older;
 	public static bool hide_unstable;
-
-	public static int grub_timeout;
-	public static bool update_grub_timeout;
 		
 	public static LinuxKernel kernel_active;
 	public static LinuxKernel kernel_update_major;
@@ -632,7 +629,7 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 			}
 			
 			// skip unstable
-			if (kern.is_unstable){
+			if (hide_unstable && kern.is_unstable){
 				continue;
 			}
 
@@ -730,8 +727,8 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 
 		if (confirm){
 			
-			var message = "\n%s:\n".printf(_("Following kernels will be removed"));
-			
+			var message = "\n%s:\n".printf(_("The following kernels will be removed:"));
+
 			foreach(var kern in list){
 
 				message += " ▰ v%s\n".printf(kern.version_main);
@@ -1060,7 +1057,7 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 			list += "\n%s".printf(deb);
 		}
 		if (list.length > 0){
-			txt += "<b>%s</b>\n%s".printf(_("Packages Available (DEB)"), list);
+			txt += "<b>%s</b>\n%s".printf(_("Packages Available"), list);
 		}
 
 		list = "";
@@ -1068,7 +1065,7 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 			list += "\n%s".printf(deb);
 		}
 		if (list.length > 0){
-			txt += "<b>%s</b>\n%s".printf(_("Packages Installed"), list);
+			txt += "\n\n<b>%s</b>\n%s".printf(_("Packages Installed"), list);
 		}
 		
 		return txt;
@@ -1146,33 +1143,6 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 		deb_list = list;
 	}
 
-	private void get_package_version(){
-
-		if (NATIVE_ARCH.length == 0){
-			log_error("Native architecture is unknown!");
-			exit(1);
-		}
-
-		//linux_image_pkg_version
-		Regex rex_image = null;
-		MatchInfo match;
-		
-		try{
-			//linux-image-3.4.75-030475-generic_3.4.75-030475.201312201255_amd64.deb
-			rex_image = new Regex("""linux-image-[0-9.\-_]*generic_([0-9.\-]*)_""" + NATIVE_ARCH + ".deb");
-		}
-		catch (Error e) {
-			log_error (e.message);
-		}
-
-		foreach(string file_name in deb_list.keys){
-			if (rex_image.match(file_name, 0, out match)) {
-				
-				continue;
-			}
-		}
-	}
-	
 	// actions
 
 	public static void print_list(){
@@ -1295,8 +1265,6 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 
 			ok = (status == 0);
 
-			update_grub_menu();
-
 			if (ok){
 				log_msg(_("Installation completed. A reboot is required to use the new kernel."));
 			}
@@ -1344,19 +1312,14 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 				}
 			}
 			else{
-				stdout.printf("");
 				log_error("Could not find the packages to remove!");
 				return false;
 			}
 		}
 
-		log_msg("");
 		status = Posix.system(cmd); // execute
-		log_msg("");
 
 		ok = (status == 0);
-
-		update_grub_menu();
 
 		if (ok){
 			log_msg(_("Un-install completed"));
@@ -1399,22 +1362,17 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 			}
 		}
 		else{
-			stdout.printf("");
 			log_error("Could not find the packages to remove!");
 			return false;
 		}
 
 		if (write_to_terminal){
-			log_msg("");
 			status = Posix.system(cmd); // execute
-			log_msg("");
 		}
 		else{
 			status = exec_script_sync(cmd); // execute
 		}
 		ok = (status == 0);
-
-		update_grub_menu();
 
 		if (ok){
 			log_msg(_("Un-install completed"));
@@ -1425,75 +1383,4 @@ public class LinuxKernel : GLib.Object, Gee.Comparable<LinuxKernel> {
 
 		return ok;
 	}
-
-	// dep: update-grub
-	public static bool update_grub_menu(){
-
-		string grub_file = "/etc/default/grub";
-		if (!file_exists(grub_file)){
-			return false;
-		}
-		
-		string txt = "";
-		bool file_changed = false;
-		bool grub_timeout_found = false;
-		
-		foreach(var line in file_read(grub_file).split("\n")){
-			
-			if (line.up().contains("GRUB_HIDDEN_TIMEOUT=") && !line.strip().has_prefix("#")){
-				// comment the line
-				txt += "#%s\n".printf(line);
-				file_changed = true;
-			}
-			else if (line.up().contains("GRUB_TIMEOUT=")){
-				
-				int64 seconds = 0;
-				if (int64.try_parse(line.split("=")[1], out seconds)){
-					// value can be 0, > 0 or -1 (indefinite wait)
-					if (seconds == grub_timeout){
-						txt += "%s\n".printf(line);
-					}
-					else{
-						txt += "%s=%d\n".printf("GRUB_TIMEOUT", grub_timeout);
-						file_changed = true;
-					}
-				}
-				else{
-					txt += "%s=%d\n".printf("GRUB_TIMEOUT", grub_timeout);
-					file_changed = true;
-				}
-				grub_timeout_found = true;
-			}
-			else if (line.up().contains("GRUB_TIMEOUT_STYLE=") && !line.strip().has_prefix("#")){
-				// comment the line; same as setting value to 'menu'
-				txt += "#%s\n".printf(line);
-				file_changed = true;
-			}
-			else if (line.up().contains("GRUB_HIDDEN_TIMEOUT_QUIET=") && !line.strip().has_prefix("#")){
-				// comment the line; deprecated option
-				txt += "#%s\n".printf(line);
-				file_changed = true;
-			}
-			else{
-				txt += "%s\n".printf(line);
-			}
-		}
-
-		if (!grub_timeout_found){
-			txt += "%s=%d\n".printf("GRUB_TIMEOUT", grub_timeout);
-			file_changed = true;
-		}
-		
-		if (file_changed && update_grub_timeout){
-			file_write(grub_file, txt);
-		}
-
-		log_msg(_("Updating GRUB menu"));
-		
-		string cmd = "update-grub";
-		Posix.system(cmd);
-
-		return true;
-	}
 }
-

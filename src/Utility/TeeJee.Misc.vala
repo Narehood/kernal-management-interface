@@ -254,48 +254,6 @@ namespace TeeJee.Misc {
 		return random;
 	}
 
-	private string pad_numbers_in_string(
-		string input, int max_length = 3, char pad_char = '0'){
-			
-		string sequence = "";
-		string output = "";
-		bool seq_started = false;
-
-		unichar c;
-		string character;
-		for (int i = 0; input.get_next_char(ref i, out c);) {
-			character = c.to_string();
-
-			if (c.isdigit()){
-				sequence += character;
-				seq_started = true;
-			}
-			else{
-				if (seq_started){
-					if ((max_length - sequence.length) > 0){
-						sequence = string.nfill(max_length - sequence.length, pad_char) + sequence;
-					}
-					output += sequence;
-					sequence = "";
-					seq_started = false;
-				}
-
-				output += character;
-			}
-		}
-
-		//append remaining characters in sequence
-		if (sequence.length > 0){
-			if ((max_length - sequence.length) > 0){
-				sequence = string.nfill(max_length - sequence.length, pad_char) + sequence;
-			}
-			output += sequence;
-			sequence = "";
-		}
-					
-		return output;
-	}
-
 	public bool is_numeric(string text){
 		for (int i = 0; i < text.length; i++){
 			if (!text[i].isdigit()){
@@ -341,23 +299,6 @@ namespace TeeJee.Misc {
 
 		double length_remaining = length - length_complete;
 
-		double length_partial = length - length_remaining - Math.floor(length_complete);
-
-		double length_char = 1.0 / length;
-
-		var partial_chars = new string[] { " ", "▏","▎","▍","▌","▋","▊","▉","█" };
-
-		int partial_index = (int) (length_partial * 8.0);
-
-		if (partial_index < 0){
-			partial_index = 0;
-		}
-		else if (partial_index > 8){
-			partial_index = 8;
-		}
-		
-		var char_partial = partial_chars[partial_index];
-
 		if (length_complete > 0){
 			for(int i = 0; i < length_complete; i++){
 				txt += "▓";
@@ -374,9 +315,6 @@ namespace TeeJee.Misc {
 		
 		stdout.printf("\r%s".printf(txt));
 
-		//stdout.printf("com: %f, rem: %f, part: %f, char_partial='%s', index=%d".printf(
-			//length_complete, length_remaining, length_partial, char_partial, partial_index));
-			
 		stdout.flush();
 	}
 

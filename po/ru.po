@@ -1,0 +1,716 @@
+# Russian translation for ukuu
+# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
+# This file is distributed under the same license as the ukuu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ukuu\n"
+"Report-Msgid-Bugs-To: bw.aljex@gmail.com\n"
+"POT-Creation-Date: 2019-09-11 18:04-0400\n"
+"PO-Revision-Date: 2016-12-13 16:46+0300\n"
+"Last-Translator: Faust3000 <slavusik1988@gmail.com>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2016-12-13 11:48+0000\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: src/Gtk/MainWindow.vala:496
+msgid "About"
+msgstr "О программе"
+
+#: src/Console/AppConsole.vala:114
+msgid "Admin access is required for running this application."
+msgstr "Для запуска программы требуются права администратора."
+
+#: src/Utility/AppLock.vala:51
+msgid "Another instance of this application is running"
+msgstr "Запущен другой экземпляр программы"
+
+#: src/Common/LinuxKernel.vala:105
+#, fuzzy
+msgid "Architecture"
+msgstr "Системная архитектура"
+
+#: src/Utility/Gtk/AboutWindow.vala:338
+#, c-format
+msgid "Artists"
+msgstr "Художники"
+
+#: src/Console/AppConsole.vala:101
+msgid "Assume Yes for all prompts (non-interactive mode)"
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:314
+#, c-format
+msgid "Authors"
+msgstr "Авторы"
+
+#: src/Common/LinuxKernel.vala:1152
+msgid "Available Kernels"
+msgstr "Доступные ядра"
+
+#: src/Utility/Gtk/AboutWindow.vala:285
+msgid "Back"
+msgstr "Назад"
+
+#: src/Console/AppConsole.vala:204 src/Gtk/AppGtk.vala:110
+msgid "Cache"
+msgstr ""
+
+#: src/Gtk/ProgressWindow.vala:145 src/Gtk/UpdateNotificationWindow.vala:167
+#: src/Gtk/TerminalWindow.vala:148 src/Utility/Gtk/CustomMessageDialog.vala:155
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/Gtk/MainWindow.vala:464
+msgid "Changes"
+msgstr "Изменения"
+
+#: src/Gtk/SettingsDialog.vala:121
+msgid "Check every"
+msgstr "Проверять каждые"
+
+#: src/Console/AppConsole.vala:85
+msgid "Check for kernel updates"
+msgstr "Проверить обновления ядра"
+
+#: src/Console/AppConsole.vala:86
+#, fuzzy
+msgid "Check for kernel updates and notify current user"
+msgstr "Проверить обновления ядра"
+
+#: src/Gtk/TerminalWindow.vala:158 src/Utility/Gtk/AboutWindow.vala:295
+msgid "Close"
+msgstr "Закрыть"
+
+#: src/Console/AppConsole.vala:341
+msgid "Command not specified"
+msgstr ""
+
+#: src/Console/AppConsole.vala:83
+msgid "Commands"
+msgstr ""
+
+#: src/Common/Main.vala:105
+msgid "Commands listed below are not available on this system"
+msgstr "Команды перечисленные ниже недоступны на этой системе"
+
+#: src/Common/LinuxKernel.vala:737
+#, c-format
+msgid "Continue ?"
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:322
+#, c-format
+msgid "Contributions"
+msgstr "Взносы"
+
+#: src/Common/LinuxKernel.vala:721
+#, fuzzy
+msgid "Could not find any kernels to remove"
+msgstr "Не удалось найти запрошенную версию"
+
+#: src/Console/AppConsole.vala:309 src/Gtk/MainWindow.vala:100
+msgid "Could not find requested version"
+msgstr "Не удалось найти запрошенную версию"
+
+#: src/Common/LinuxKernel.vala:715
+#, fuzzy
+msgid "Could not find running kernel in list!"
+msgstr "Не удалось найти запрошенную версию"
+
+#: src/Utility/TeeJee.FileSystem.vala:349
+#: src/Utility/TeeJee.FileSystem.vala:352
+#: src/Utility/TeeJee.FileSystem.vala:378
+#, fuzzy
+msgid "Created directory"
+msgstr "Используемая кэш-папка"
+
+#: src/Utility/Gtk/AboutWindow.vala:272 src/Utility/Gtk/AboutWindow.vala:289
+msgid "Credits"
+msgstr "Создатели"
+
+#: src/Gtk/SettingsDialog.vala:154
+msgid "Day(s)"
+msgstr "День(дней)"
+
+#: src/Utility/TeeJee.FileSystem.vala:375
+msgid "Deleted directory"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:509
+msgid "Dir not found"
+msgstr "Папка не найдена"
+
+#: src/Gtk/SettingsDialog.vala:161
+msgid "Display"
+msgstr "Вид"
+
+#: src/Common/LinuxKernel.vala:91
+msgid "Distribution"
+msgstr "Дистрибутив"
+
+#: src/Utility/Gtk/AboutWindow.vala:354
+#, c-format
+msgid "Documenters"
+msgstr "Составители документации"
+
+#: src/Console/AppConsole.vala:94
+msgid "Download packages for specified kernel"
+msgstr "Скачать пакеты для указанного ядра"
+
+#: src/Common/LinuxKernel.vala:1198
+#, c-format
+msgid "Downloading"
+msgstr "Загрузка"
+
+#: src/Utility/TeeJee.Logging.vala:89
+msgid "E"
+msgstr "E"
+
+#: src/Common/LinuxKernel.vala:1226
+#, c-format
+msgid "ERROR"
+msgstr "ОШИБКА"
+
+#: src/Utility/Gtk/GtkHelper.vala:17
+msgid "Error"
+msgstr "Ошибка"
+
+#: src/Utility/TeeJee.FileSystem.vala:221
+msgid "Failed to copy file"
+msgstr "Не удалось скопировать файл"
+
+#: src/Utility/TeeJee.FileSystem.vala:359
+msgid "Failed to create dir"
+msgstr "Не удалось создать папку"
+
+#: src/Utility/TeeJee.FileSystem.vala:106
+msgid "Failed to delete file"
+msgstr "Не удалось удалить файл"
+
+#: src/Utility/TeeJee.FileSystem.vala:253
+msgid "Failed to move file"
+msgstr "Не удалось переместить файл"
+
+#: src/Utility/TeeJee.FileSystem.vala:162
+msgid "Failed to read file"
+msgstr "Не удалось прочитать файл"
+
+#: src/Utility/TeeJee.FileSystem.vala:197
+msgid "Failed to write file"
+msgstr "Не удалось записать файл"
+
+#: src/Common/LinuxKernel.vala:396
+msgid "Fetching index from kernel.ubuntu.com..."
+msgstr "Получение сведений с kernel.ubuntu.com..."
+
+#: src/Common/LinuxKernel.vala:353
+msgid "Fetching index..."
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:210
+#: src/Utility/TeeJee.FileSystem.vala:213
+#, fuzzy
+msgid "File copied"
+msgstr "Не удалось скопировать файл"
+
+#: src/Utility/TeeJee.FileSystem.vala:97 src/Utility/TeeJee.FileSystem.vala:100
+#, fuzzy
+msgid "File deleted"
+msgstr "Не удалось удалить файл"
+
+#: src/Utility/TeeJee.FileSystem.vala:662
+#: src/Utility/TeeJee.FileSystem.vala:711
+msgid "File is missing"
+msgstr "Файл отсутствует"
+
+#: src/Utility/TeeJee.FileSystem.vala:245
+#: src/Utility/TeeJee.FileSystem.vala:248
+#, fuzzy
+msgid "File moved"
+msgstr "Удалить"
+
+#: src/Utility/TeeJee.FileSystem.vala:231
+#: src/Utility/TeeJee.FileSystem.vala:538
+msgid "File not found"
+msgstr "Файл не найден"
+
+#: src/Common/Package.vala:126 src/Common/Package.vala:188
+#, c-format
+msgid "File not found: %s"
+msgstr "Файл не найден: %s"
+
+#: src/Utility/TeeJee.FileSystem.vala:187
+#: src/Utility/TeeJee.FileSystem.vala:190
+#, fuzzy
+msgid "File saved"
+msgstr "Файловая система"
+
+#: src/Gtk/SettingsDialog.vala:180
+msgid "Hide kernels older than 4.0"
+msgstr "Скрыть ядра старше версии 4.0"
+
+#: src/Gtk/SettingsDialog.vala:169
+msgid "Hide unstable and RC releases"
+msgstr "Скрыть нестабильные и релиз-кандидат версии"
+
+#: src/Gtk/SettingsDialog.vala:152
+msgid "Hour(s)"
+msgstr "Час(ов)"
+
+#: src/Gtk/UpdateNotificationWindow.vala:168
+msgid "Ignore this update"
+msgstr "Игнорировать это обновление"
+
+#: src/Common/LinuxKernel.vala:259
+msgid "Index is fresh"
+msgstr "Сведения актуальны"
+
+#: src/Common/LinuxKernel.vala:256
+msgid "Index is stale"
+msgstr "Сведения устарели"
+
+#: src/Gtk/UpdateNotificationWindow.vala:147 src/Gtk/MainWindow.vala:359
+msgid "Install"
+msgstr "Установить"
+
+#: src/Common/LinuxKernel.vala:794
+#, c-format
+msgid "Install Linux v%s ? (y/n): "
+msgstr ""
+
+#: src/Console/AppConsole.vala:89
+#, fuzzy
+msgid "Install latest mainline kernel"
+msgstr "Установить указанную ветку ядра"
+
+#: src/Console/AppConsole.vala:90
+msgid "Install latest point update for current series"
+msgstr ""
+
+#: src/Console/AppConsole.vala:91
+msgid "Install specified mainline kernel"
+msgstr "Установить указанную ветку ядра"
+
+#: src/Gtk/UpdateNotificationWindow.vala:148
+msgid "Install this kernel"
+msgstr "Установить это ядро"
+
+#: src/Common/LinuxKernel.vala:1272
+msgid "Installation completed with errors"
+msgstr "Установка завершена с ошибками"
+
+#: src/Common/LinuxKernel.vala:1269
+msgid "Installation completed. A reboot is required to use the new kernel."
+msgstr ""
+"Установка завершена. Обязательно выполните перезагрузку, чтобы использовать "
+"новое ядро."
+
+#: src/Common/LinuxKernel.vala:1169 src/Gtk/MainWindow.vala:208
+msgid "Installed"
+msgstr "Установлено"
+
+#: src/Gtk/MainWindow.vala:350 src/Gtk/MainWindow.vala:550
+#: src/Gtk/MainWindow.vala:686 src/Utility/TeeJee.System.vala:281
+msgid "Internet connection is not active"
+msgstr "Интернет соединение не активно"
+
+#: src/Gtk/SettingsDialog.vala:212
+#, fuzzy
+msgid "Internet connection timeout in "
+msgstr "Интернет соединение не активно"
+
+#: src/Gtk/MainWindow.vala:150
+msgid "Kernel"
+msgstr "Ядро"
+
+#: src/Gtk/MainWindow.vala:534
+msgid "Kernel upgrade utility for Ubuntu-based distributions"
+msgstr "Программа обновления ядра для дистрибутивов на базе Ubuntu"
+
+#: src/Common/LinuxKernel.vala:776 src/Console/AppConsole.vala:367
+#, c-format
+msgid "Latest point update"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:765 src/Console/AppConsole.vala:360
+#, c-format
+msgid "Latest update"
+msgstr ""
+
+#: src/Console/AppConsole.vala:87
+msgid "List all available mainline kernels"
+msgstr "Список всех доступных основных ядер"
+
+#: src/Gtk/UpdateNotificationWindow.vala:158
+#, fuzzy
+msgid "List available kernels"
+msgstr "Список всех доступных основных ядер"
+
+#: src/Console/AppConsole.vala:88
+#, fuzzy
+msgid "List installed kernels"
+msgstr "Список всех доступных основных ядер"
+
+#: src/Utility/Gtk/GtkHelper.vala:93
+msgid "Missing Icon"
+msgstr "Значок отсутствует"
+
+#: src/Gtk/MainWindow.vala:368
+msgid "Multiple Kernels Selected"
+msgstr ""
+
+#: src/Console/AppConsole.vala:291
+msgid "Multiple kernels selected for installation. Select only one."
+msgstr ""
+
+#: src/Utility/Gtk/CustomMessageDialog.vala:160
+msgid "No"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:350 src/Gtk/MainWindow.vala:550
+#: src/Gtk/MainWindow.vala:686
+msgid "No Internet"
+msgstr ""
+
+#: src/Console/AppConsole.vala:285 src/Console/AppConsole.vala:322
+msgid "No kernels specified"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:784 src/Console/AppConsole.vala:372
+#: src/Console/AppConsole.vala:430 src/Gtk/MainWindow.vala:796
+msgid "No updates found"
+msgstr "Обновлений не найдено"
+
+#: src/Gtk/MainWindow.vala:371 src/Gtk/MainWindow.vala:382
+msgid "Not Selected"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:66
+msgid "Notification"
+msgstr "Уведомления"
+
+#: src/Gtk/SettingsDialog.vala:73
+msgid "Notify if a major release is available"
+msgstr "Уведомлять, если доступно крупное обновление"
+
+#: src/Gtk/SettingsDialog.vala:84
+msgid "Notify if a point release is available"
+msgstr "Уведомлять, если доступно небольшое обновление"
+
+#: src/Common/LinuxKernel.vala:1217
+#: src/Utility/Gtk/CustomMessageDialog.vala:150
+#: src/Utility/Gtk/CustomMessageDialog.vala:154
+#, c-format
+msgid "OK"
+msgstr "OK"
+
+#: src/Console/AppConsole.vala:98 src/Gtk/AppGtk.vala:181
+msgid "Options"
+msgstr "Параметры"
+
+#: src/Gtk/SettingsDialog.vala:191
+msgid "Other"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1060
+#, fuzzy, c-format
+msgid "Packages Available"
+msgstr "Установлено"
+
+#: src/Common/LinuxKernel.vala:1068
+#, fuzzy, c-format
+msgid "Packages Installed"
+msgstr "Установлено"
+
+#: src/Common/Main.vala:106
+msgid "Please install required packages and try again"
+msgstr "Установить необходимые пакеты и попробуйте снова"
+
+#: src/Common/LinuxKernel.vala:1293
+msgid "Preparing to remove selected kernels"
+msgstr ""
+
+#: src/Gtk/AppGtk.vala:183
+msgid "Print debug information"
+msgstr "Распечатать отладочную информацию"
+
+#: src/Gtk/MainWindow.vala:425
+msgid "Purge"
+msgstr "Очистить"
+
+#: src/Gtk/MainWindow.vala:343
+msgid "Refresh"
+msgstr "Обновить"
+
+#: src/Gtk/MainWindow.vala:569
+msgid "Refreshing..."
+msgstr "Обновление..."
+
+#: src/Gtk/MainWindow.vala:376
+msgid "Remove"
+msgstr "Удалить"
+
+#: src/Console/AppConsole.vala:95 src/Console/AppConsole.vala:100
+msgid "Remove files from application cache"
+msgstr "Удалить файлы из кэша программы"
+
+#: src/Console/AppConsole.vala:93 src/Gtk/MainWindow.vala:426
+msgid "Remove installed kernels older than running kernel"
+msgstr "Удалить более старшие установленные ядра, чем используемое"
+
+#: src/Console/AppConsole.vala:92
+#, fuzzy
+msgid "Remove specified kernel"
+msgstr "Удалить указанную ветку ядра"
+
+#: src/Console/AppConsole.vala:199 src/Console/AppConsole.vala:313
+#: src/Console/AppConsole.vala:342
+msgid "Run '"
+msgstr ""
+
+#: src/Console/AppConsole.vala:117
+#, fuzzy
+msgid "Run the application as admin with pkexec or sudo."
+msgstr "Запустите программу с правами Root или используйте gksu/sudo."
+
+#: src/Common/LinuxKernel.vala:1169 src/Gtk/MainWindow.vala:208
+msgid "Running"
+msgstr "Используется"
+
+#: src/Gtk/MainWindow.vala:368
+msgid "Select a single kernel to install"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:371
+msgid "Select the kernel to install"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:382
+msgid "Select the kernels to remove"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1288
+#, fuzzy
+msgid ""
+"Selected kernel is currently running and cannot be removed.\n"
+" Install another kernel before removing this one."
+msgstr ""
+"Это ядро в настоящий момент работает и не может быть удалено.\n"
+" Установите другое ядро, прежде чем удалять его."
+
+#: src/Gtk/SettingsDialog.vala:56 src/Gtk/MainWindow.vala:475
+msgid "Settings"
+msgstr "Настройки"
+
+#: src/Gtk/UpdateNotificationWindow.vala:157
+msgid "Show"
+msgstr ""
+
+#: src/Gtk/AppGtk.vala:184
+msgid "Show all options"
+msgstr "Показать все параметры"
+
+#: src/Gtk/SettingsDialog.vala:95
+msgid "Show notification bubble on desktop"
+msgstr "Показывать окно оповещений на рабочем столе"
+
+#: src/Gtk/SettingsDialog.vala:106
+msgid "Show notification dialog"
+msgstr "Показывать окно оповещений"
+
+#: src/Console/AppConsole.vala:96
+#, fuzzy
+msgid "Show unstable and RC releases"
+msgstr "Скрыть нестабильные и релиз-кандидат версии"
+
+#: src/Gtk/SettingsDialog.vala:199
+#, fuzzy
+msgid "Skip internet connection check"
+msgstr "Интернет соединение не активно"
+
+#: src/Gtk/MainWindow.vala:196
+msgid "Status"
+msgstr "Состояние"
+
+#: src/Utility/TeeJee.Process.vala:513
+msgid "Stopped"
+msgstr "Остановлено"
+
+#: src/Console/AppConsole.vala:81 src/Gtk/AppGtk.vala:179
+msgid "Syntax"
+msgstr "Синтаксис"
+
+#: src/Console/AppConsole.vala:205 src/Gtk/AppGtk.vala:111
+msgid "Temp"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:730
+#, c-format
+msgid "The following kernels will be removed:"
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:330
+#, c-format
+msgid "Third Party Tools"
+msgstr "Сторонние инструменты"
+
+#: src/Common/LinuxKernel.vala:1240 src/Gtk/MainWindow.vala:681
+msgid "This kernel is already installed."
+msgstr "Это ядро уже установлено."
+
+#: src/Common/LinuxKernel.vala:1341
+msgid ""
+"This kernel is currently running and cannot be removed.\n"
+" Install another kernel before removing this one."
+msgstr ""
+"Это ядро в настоящий момент работает и не может быть удалено.\n"
+" Установите другое ядро, прежде чем удалять его."
+
+#: src/Utility/Gtk/AboutWindow.vala:346
+#, c-format
+msgid "Translators"
+msgstr "Переводчики"
+
+#: src/Common/LinuxKernel.vala:1325 src/Common/LinuxKernel.vala:1378
+msgid "Un-install completed"
+msgstr "Удаление завершено"
+
+#: src/Common/LinuxKernel.vala:1328 src/Common/LinuxKernel.vala:1381
+msgid "Un-install completed with errors"
+msgstr "Удаление завершено с ошибками"
+
+#: src/Console/AppConsole.vala:197 src/Gtk/AppGtk.vala:166
+msgid "Unknown option"
+msgstr "Неизвестный параметр"
+
+#: src/Gtk/MainWindow.vala:179
+msgid "Version"
+msgstr "Версия"
+
+#: src/Utility/TeeJee.Logging.vala:89
+msgid "W"
+msgstr "W"
+
+#: src/Gtk/SettingsDialog.vala:156
+msgid "Week(s)"
+msgstr "Неделю(ли)"
+
+#: src/Utility/Gtk/CustomMessageDialog.vala:159
+msgid "Yes"
+msgstr ""
+
+#: src/Utility/AppLock.vala:56
+msgid "[Warning] Deleted invalid lock"
+msgstr "[Внимание] Удалена неправильная блокировка"
+
+#: src/Gtk/SettingsDialog.vala:226
+msgid "seconds"
+msgstr ""
+
+#~ msgid "GRUB Options"
+#~ msgstr "Настройки GRUB"
+
+#~ msgid ""
+#~ "Time (in seconds) to display the GRUB menu\n"
+#~ "\n"
+#~ "0 = Do not show menu\n"
+#~ "-1 = Show indefinitely till user selects"
+#~ msgstr ""
+#~ "Время отображения меню GRUB (в секундах)\n"
+#~ "\n"
+#~ "0 = Не отображать меню\n"
+#~ "-1 = Отображать до выбора пользователя"
+
+#~ msgid ""
+#~ "Updates the GRUB menu after installing or removing kernels, so that the "
+#~ "menu is displayed for 2 seconds at boot time. This will help you recover "
+#~ "from a bad kernel update by selecting another kernel to boot. During "
+#~ "boot, use the 'Advanced options for Ubuntu' menu entry to select another "
+#~ "kernel.\n"
+#~ "\n"
+#~ "0 = Do not show menu\n"
+#~ "-1 = Show indefinitely till user selects"
+#~ msgstr ""
+#~ "Обновляет меню GRUB после установки или удаления ядер, после чего оно "
+#~ "отображается на 2 секунды после загрузки. Это даст возможность выбрать "
+#~ "другое ядро после неудачного обновления. Во время загрузки выберите пункт "
+#~ "меню 'Advanced options for Ubuntu' для запуска другого ядра.\n"
+#~ "\n"
+#~ "0 = Не отображать меню\n"
+#~ "-1 = Отображать до выбора пользователя"
+
+#~ msgid "Updating GRUB menu"
+#~ msgstr "Обновление меню GRUB"
+
+#~ msgid "Run 'ukuu --list' and use the version string listed in first column"
+#~ msgstr "Выполните 'ukuu --list' и используйте версию из первого столбца"
+
+#~ msgid ""
+#~ "Did you find this software useful?\n"
+#~ "\n"
+#~ "You can buy me a coffee or make a donation via PayPal to show your "
+#~ "support. Or just drop me an email and say Hi. This application is "
+#~ "completely free and will continue to remain that way. Your contributions "
+#~ "will help in keeping this project alive and improving it further.\n"
+#~ "\n"
+#~ "Feel free to send me an email if you find any issues in this application "
+#~ "or if you need any changes. Suggestions and feedback are always welcome.\n"
+#~ "\n"
+#~ "Thanks,\n"
+#~ "Tony George\n"
+#~ "(teejeetech@gmail.com)"
+#~ msgstr ""
+#~ "Считаете эту программу полезной?\n"
+#~ "\n"
+#~ "Вы можете купить мне кофе или сделать пожертвование с помощью PayPal, "
+#~ "чтобы оказать поддержку. Или просто напишите мне письмо и скажите \"Привет"
+#~ "\". Эта программа полностью бесплатна и будет оставаться таковой. Ваши "
+#~ "пожертвования помогут поддержке и развитию проекта.\n"
+#~ "\n"
+#~ "Не стесняйтесь прислать мне письмо, если Вы найдете какие-то ошибки в "
+#~ "программе, или если у Вас будут идеи по улучшению функциональности. "
+#~ "Отзывы и предложения всегда приветствуются.\n"
+#~ "\n"
+#~ "Спасибо, ваш\n"
+#~ "Tony George\n"
+#~ "(teejeetech@gmail.com)"
+
+#~ msgid "Display GRUB menu during boot"
+#~ msgstr "Отображать меню GRUB во время загрузки"
+
+#~ msgid "Donate"
+#~ msgstr "Пожертвования"
+
+#~ msgid "Donate with Google Wallet"
+#~ msgstr "Пожертвовать через Google Wallet"
+
+#~ msgid "Donate with PayPal"
+#~ msgstr "Пожертвовать через PayPal"
+
+#~ msgid "Donations"
+#~ msgstr "Спонсоры"
+
+#, fuzzy
+#~ msgid "File read"
+#~ msgstr "Не удалось прочитать файл"
+
+#~ msgid "Notify if kernel update is available"
+#~ msgstr "Уведомлять, если доступно обновление ядра"
+
+#~ msgid "Send Email"
+#~ msgstr "Отправить email"
+
+#~ msgid "Use specified user's cache directory"
+#~ msgstr "Использовать указанную пользователем папку для кэша"
+
+#~ msgid "Using cache directory"
+#~ msgstr "Используемая кэш-папка"
+
+#~ msgid "Visit Website"
+#~ msgstr "Посетить сайт"

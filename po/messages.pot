@@ -1,0 +1,589 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Brian K. White (bw.aljex@gmail.com)
+# This file is distributed under the same license as the mainline package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mainline 1.0.1\n"
+"Report-Msgid-Bugs-To: bw.aljex@gmail.com\n"
+"POT-Creation-Date: 2019-09-11 18:24-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Gtk/MainWindow.vala:496
+msgid "About"
+msgstr ""
+
+#: src/Console/AppConsole.vala:114
+msgid "Admin access is required for running this application."
+msgstr ""
+
+#: src/Utility/AppLock.vala:51
+msgid "Another instance of this application is running"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:105
+msgid "Architecture"
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:338
+#, c-format
+msgid "Artists"
+msgstr ""
+
+#: src/Console/AppConsole.vala:101
+msgid "Assume Yes for all prompts (non-interactive mode)"
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:314
+#, c-format
+msgid "Authors"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1152
+msgid "Available Kernels"
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:285
+msgid "Back"
+msgstr ""
+
+#: src/Console/AppConsole.vala:204 src/Gtk/AppGtk.vala:110
+msgid "Cache"
+msgstr ""
+
+#: src/Gtk/ProgressWindow.vala:145 src/Gtk/UpdateNotificationWindow.vala:167
+#: src/Gtk/TerminalWindow.vala:148 src/Utility/Gtk/CustomMessageDialog.vala:155
+msgid "Cancel"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:464
+msgid "Changes"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:121
+msgid "Check every"
+msgstr ""
+
+#: src/Console/AppConsole.vala:85
+msgid "Check for kernel updates"
+msgstr ""
+
+#: src/Console/AppConsole.vala:86
+msgid "Check for kernel updates and notify current user"
+msgstr ""
+
+#: src/Gtk/TerminalWindow.vala:158 src/Utility/Gtk/AboutWindow.vala:295
+msgid "Close"
+msgstr ""
+
+#: src/Console/AppConsole.vala:341
+msgid "Command not specified"
+msgstr ""
+
+#: src/Console/AppConsole.vala:83
+msgid "Commands"
+msgstr ""
+
+#: src/Common/Main.vala:105
+msgid "Commands listed below are not available on this system"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:737
+#, c-format
+msgid "Continue ?"
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:322
+#, c-format
+msgid "Contributions"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:721
+msgid "Could not find any kernels to remove"
+msgstr ""
+
+#: src/Console/AppConsole.vala:309 src/Gtk/MainWindow.vala:100
+msgid "Could not find requested version"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:715
+msgid "Could not find running kernel in list!"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:349
+#: src/Utility/TeeJee.FileSystem.vala:352
+#: src/Utility/TeeJee.FileSystem.vala:378
+msgid "Created directory"
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:272 src/Utility/Gtk/AboutWindow.vala:289
+msgid "Credits"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:154
+msgid "Day(s)"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:375
+msgid "Deleted directory"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:509
+msgid "Dir not found"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:161
+msgid "Display"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:91
+msgid "Distribution"
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:354
+#, c-format
+msgid "Documenters"
+msgstr ""
+
+#: src/Console/AppConsole.vala:94
+msgid "Download packages for specified kernel"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1198
+#, c-format
+msgid "Downloading"
+msgstr ""
+
+#: src/Utility/TeeJee.Logging.vala:89
+msgid "E"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1226
+#, c-format
+msgid "ERROR"
+msgstr ""
+
+#: src/Utility/Gtk/GtkHelper.vala:17
+msgid "Error"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:221
+msgid "Failed to copy file"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:359
+msgid "Failed to create dir"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:106
+msgid "Failed to delete file"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:253
+msgid "Failed to move file"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:162
+msgid "Failed to read file"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:197
+msgid "Failed to write file"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:396
+msgid "Fetching index from kernel.ubuntu.com..."
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:353
+msgid "Fetching index..."
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:210
+#: src/Utility/TeeJee.FileSystem.vala:213
+msgid "File copied"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:97 src/Utility/TeeJee.FileSystem.vala:100
+msgid "File deleted"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:662
+#: src/Utility/TeeJee.FileSystem.vala:711
+msgid "File is missing"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:245
+#: src/Utility/TeeJee.FileSystem.vala:248
+msgid "File moved"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:231
+#: src/Utility/TeeJee.FileSystem.vala:538
+msgid "File not found"
+msgstr ""
+
+#: src/Common/Package.vala:126 src/Common/Package.vala:188
+#, c-format
+msgid "File not found: %s"
+msgstr ""
+
+#: src/Utility/TeeJee.FileSystem.vala:187
+#: src/Utility/TeeJee.FileSystem.vala:190
+msgid "File saved"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:180
+msgid "Hide kernels older than 4.0"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:169
+msgid "Hide unstable and RC releases"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:152
+msgid "Hour(s)"
+msgstr ""
+
+#: src/Gtk/UpdateNotificationWindow.vala:168
+msgid "Ignore this update"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:259
+msgid "Index is fresh"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:256
+msgid "Index is stale"
+msgstr ""
+
+#: src/Gtk/UpdateNotificationWindow.vala:147 src/Gtk/MainWindow.vala:359
+msgid "Install"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:794
+#, c-format
+msgid "Install Linux v%s ? (y/n): "
+msgstr ""
+
+#: src/Console/AppConsole.vala:89
+msgid "Install latest mainline kernel"
+msgstr ""
+
+#: src/Console/AppConsole.vala:90
+msgid "Install latest point update for current series"
+msgstr ""
+
+#: src/Console/AppConsole.vala:91
+msgid "Install specified mainline kernel"
+msgstr ""
+
+#: src/Gtk/UpdateNotificationWindow.vala:148
+msgid "Install this kernel"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1272
+msgid "Installation completed with errors"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1269
+msgid "Installation completed. A reboot is required to use the new kernel."
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1169 src/Gtk/MainWindow.vala:208
+msgid "Installed"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:350 src/Gtk/MainWindow.vala:550
+#: src/Gtk/MainWindow.vala:686 src/Utility/TeeJee.System.vala:281
+msgid "Internet connection is not active"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:212
+msgid "Internet connection timeout in "
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:150
+msgid "Kernel"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:534
+msgid "Kernel upgrade utility for Ubuntu-based distributions"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:776 src/Console/AppConsole.vala:367
+#, c-format
+msgid "Latest point update"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:765 src/Console/AppConsole.vala:360
+#, c-format
+msgid "Latest update"
+msgstr ""
+
+#: src/Console/AppConsole.vala:87
+msgid "List all available mainline kernels"
+msgstr ""
+
+#: src/Gtk/UpdateNotificationWindow.vala:158
+msgid "List available kernels"
+msgstr ""
+
+#: src/Console/AppConsole.vala:88
+msgid "List installed kernels"
+msgstr ""
+
+#: src/Utility/Gtk/GtkHelper.vala:93
+msgid "Missing Icon"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:368
+msgid "Multiple Kernels Selected"
+msgstr ""
+
+#: src/Console/AppConsole.vala:291
+msgid "Multiple kernels selected for installation. Select only one."
+msgstr ""
+
+#: src/Utility/Gtk/CustomMessageDialog.vala:160
+msgid "No"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:350 src/Gtk/MainWindow.vala:550
+#: src/Gtk/MainWindow.vala:686
+msgid "No Internet"
+msgstr ""
+
+#: src/Console/AppConsole.vala:285 src/Console/AppConsole.vala:322
+msgid "No kernels specified"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:784 src/Console/AppConsole.vala:372
+#: src/Console/AppConsole.vala:430 src/Gtk/MainWindow.vala:796
+msgid "No updates found"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:371 src/Gtk/MainWindow.vala:382
+msgid "Not Selected"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:66
+msgid "Notification"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:73
+msgid "Notify if a major release is available"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:84
+msgid "Notify if a point release is available"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1217
+#: src/Utility/Gtk/CustomMessageDialog.vala:150
+#: src/Utility/Gtk/CustomMessageDialog.vala:154
+#, c-format
+msgid "OK"
+msgstr ""
+
+#: src/Console/AppConsole.vala:98 src/Gtk/AppGtk.vala:181
+msgid "Options"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:191
+msgid "Other"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1060
+#, c-format
+msgid "Packages Available"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1068
+#, c-format
+msgid "Packages Installed"
+msgstr ""
+
+#: src/Common/Main.vala:106
+msgid "Please install required packages and try again"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1293
+msgid "Preparing to remove selected kernels"
+msgstr ""
+
+#: src/Gtk/AppGtk.vala:183
+msgid "Print debug information"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:425
+msgid "Purge"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:343
+msgid "Refresh"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:569
+msgid "Refreshing..."
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:376
+msgid "Remove"
+msgstr ""
+
+#: src/Console/AppConsole.vala:95 src/Console/AppConsole.vala:100
+msgid "Remove files from application cache"
+msgstr ""
+
+#: src/Console/AppConsole.vala:93 src/Gtk/MainWindow.vala:426
+msgid "Remove installed kernels older than running kernel"
+msgstr ""
+
+#: src/Console/AppConsole.vala:92
+msgid "Remove specified kernel"
+msgstr ""
+
+#: src/Console/AppConsole.vala:199 src/Console/AppConsole.vala:313
+#: src/Console/AppConsole.vala:342
+msgid "Run '"
+msgstr ""
+
+#: src/Console/AppConsole.vala:117
+msgid "Run the application as admin with pkexec or sudo."
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1169 src/Gtk/MainWindow.vala:208
+msgid "Running"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:368
+msgid "Select a single kernel to install"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:371
+msgid "Select the kernel to install"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:382
+msgid "Select the kernels to remove"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1288
+msgid ""
+"Selected kernel is currently running and cannot be removed.\n"
+" Install another kernel before removing this one."
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:56 src/Gtk/MainWindow.vala:475
+msgid "Settings"
+msgstr ""
+
+#: src/Gtk/UpdateNotificationWindow.vala:157
+msgid "Show"
+msgstr ""
+
+#: src/Gtk/AppGtk.vala:184
+msgid "Show all options"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:95
+msgid "Show notification bubble on desktop"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:106
+msgid "Show notification dialog"
+msgstr ""
+
+#: src/Console/AppConsole.vala:96
+msgid "Show unstable and RC releases"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:199
+msgid "Skip internet connection check"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:196
+msgid "Status"
+msgstr ""
+
+#: src/Utility/TeeJee.Process.vala:513
+msgid "Stopped"
+msgstr ""
+
+#: src/Console/AppConsole.vala:81 src/Gtk/AppGtk.vala:179
+msgid "Syntax"
+msgstr ""
+
+#: src/Console/AppConsole.vala:205 src/Gtk/AppGtk.vala:111
+msgid "Temp"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:730
+#, c-format
+msgid "The following kernels will be removed:"
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:330
+#, c-format
+msgid "Third Party Tools"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1240 src/Gtk/MainWindow.vala:681
+msgid "This kernel is already installed."
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1341
+msgid ""
+"This kernel is currently running and cannot be removed.\n"
+" Install another kernel before removing this one."
+msgstr ""
+
+#: src/Utility/Gtk/AboutWindow.vala:346
+#, c-format
+msgid "Translators"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1325 src/Common/LinuxKernel.vala:1378
+msgid "Un-install completed"
+msgstr ""
+
+#: src/Common/LinuxKernel.vala:1328 src/Common/LinuxKernel.vala:1381
+msgid "Un-install completed with errors"
+msgstr ""
+
+#: src/Console/AppConsole.vala:197 src/Gtk/AppGtk.vala:166
+msgid "Unknown option"
+msgstr ""
+
+#: src/Gtk/MainWindow.vala:179
+msgid "Version"
+msgstr ""
+
+#: src/Utility/TeeJee.Logging.vala:89
+msgid "W"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:156
+msgid "Week(s)"
+msgstr ""
+
+#: src/Utility/Gtk/CustomMessageDialog.vala:159
+msgid "Yes"
+msgstr ""
+
+#: src/Utility/AppLock.vala:56
+msgid "[Warning] Deleted invalid lock"
+msgstr ""
+
+#: src/Gtk/SettingsDialog.vala:226
+msgid "seconds"
+msgstr ""

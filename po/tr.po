@@ -1,0 +1,595 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Tony George (teejeetech@gmail.com)
+# This file is distributed under the same license as the ukuu package.
+# Gökhan Gökkaya <gokhanlnx@gmail.com>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ukuu\n"
+"Report-Msgid-Bugs-To: bw.aljex@gmail.com\n"
+"POT-Creation-Date: 2019-09-11 18:04-0400\n"
+"PO-Revision-Date: 2019-08-31 18:33+0300\n"
+"Last-Translator: Gökhan GÖKKAYA <gokhanlnx@gmail.com>\n"
+"Language-Team: Turkish\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/Gtk/MainWindow.vala:496
+msgid "About"
+msgstr "Hakkında"
+
+#: src/Console/AppConsole.vala:114
+msgid "Admin access is required for running this application."
+msgstr "Bu uygulamayı çalıştırmak için yönetici izni gerekiyor."
+
+#: src/Utility/AppLock.vala:51
+msgid "Another instance of this application is running"
+msgstr "Bu uygulamanın başka bir örneği çalışıyor"
+
+#: src/Common/LinuxKernel.vala:105
+msgid "Architecture"
+msgstr "Sistem mimarisi"
+
+#: src/Utility/Gtk/AboutWindow.vala:338
+#, c-format
+msgid "Artists"
+msgstr "Sanatçılar"
+
+#: src/Console/AppConsole.vala:101
+msgid "Assume Yes for all prompts (non-interactive mode)"
+msgstr "Tüm istemler için Evet'i kabul edin (etkileşimsiz kip)"
+
+#: src/Utility/Gtk/AboutWindow.vala:314
+#, c-format
+msgid "Authors"
+msgstr "Yazar"
+
+#: src/Common/LinuxKernel.vala:1152
+msgid "Available Kernels"
+msgstr "Mevcut Çekirdekler"
+
+#: src/Utility/Gtk/AboutWindow.vala:285
+msgid "Back"
+msgstr "Geri"
+
+#: src/Console/AppConsole.vala:204 src/Gtk/AppGtk.vala:110
+msgid "Cache"
+msgstr "Önbellek"
+
+#: src/Gtk/ProgressWindow.vala:145 src/Gtk/UpdateNotificationWindow.vala:167
+#: src/Gtk/TerminalWindow.vala:148 src/Utility/Gtk/CustomMessageDialog.vala:155
+msgid "Cancel"
+msgstr "İptal"
+
+#: src/Gtk/MainWindow.vala:464
+msgid "Changes"
+msgstr "Değişiklikler"
+
+#: src/Gtk/SettingsDialog.vala:121
+msgid "Check every"
+msgstr "Kontrol aralığı"
+
+#: src/Console/AppConsole.vala:85
+msgid "Check for kernel updates"
+msgstr "Çekirdek güncellemelerini kontrol et"
+
+#: src/Console/AppConsole.vala:86
+msgid "Check for kernel updates and notify current user"
+msgstr "Çekirdek güncellemelerini kontrol et ve mevcut kullanıcıyı uyar"
+
+#: src/Gtk/TerminalWindow.vala:158 src/Utility/Gtk/AboutWindow.vala:295
+msgid "Close"
+msgstr "Kapat"
+
+#: src/Console/AppConsole.vala:341
+msgid "Command not specified"
+msgstr "Komut belirtilmedi"
+
+#: src/Console/AppConsole.vala:83
+msgid "Commands"
+msgstr "Komutlar"
+
+#: src/Common/Main.vala:105
+msgid "Commands listed below are not available on this system"
+msgstr "Aşağıda listelenen komutlar bu sistemde mevcut değil"
+
+#: src/Common/LinuxKernel.vala:737
+#, c-format
+msgid "Continue ?"
+msgstr "Devam et ?"
+
+#: src/Utility/Gtk/AboutWindow.vala:322
+#, c-format
+msgid "Contributions"
+msgstr "Destek verenler"
+
+#: src/Common/LinuxKernel.vala:721
+msgid "Could not find any kernels to remove"
+msgstr "Kaldırılacak çekirdek bulunamadı"
+
+#: src/Console/AppConsole.vala:309 src/Gtk/MainWindow.vala:100
+msgid "Could not find requested version"
+msgstr "İstenen sürüm bulunamadı"
+
+#: src/Common/LinuxKernel.vala:715
+msgid "Could not find running kernel in list!"
+msgstr "İstenen sürüm bulunamadı!"
+
+#: src/Utility/TeeJee.FileSystem.vala:349
+#: src/Utility/TeeJee.FileSystem.vala:352
+#: src/Utility/TeeJee.FileSystem.vala:378
+msgid "Created directory"
+msgstr "Dizin oluşturuldu"
+
+#: src/Utility/Gtk/AboutWindow.vala:272 src/Utility/Gtk/AboutWindow.vala:289
+msgid "Credits"
+msgstr "Katkı sağlayanlar"
+
+#: src/Gtk/SettingsDialog.vala:154
+msgid "Day(s)"
+msgstr "Gün"
+
+#: src/Utility/TeeJee.FileSystem.vala:375
+msgid "Deleted directory"
+msgstr "Silinen dizin"
+
+#: src/Utility/TeeJee.FileSystem.vala:509
+msgid "Dir not found"
+msgstr "Dizin bulunamadı"
+
+#: src/Gtk/SettingsDialog.vala:161
+msgid "Display"
+msgstr "Gösterim"
+
+#: src/Common/LinuxKernel.vala:91
+msgid "Distribution"
+msgstr "Dağıtım"
+
+#: src/Utility/Gtk/AboutWindow.vala:354
+#, c-format
+msgid "Documenters"
+msgstr "Belgelendirenler"
+
+#: src/Console/AppConsole.vala:94
+msgid "Download packages for specified kernel"
+msgstr "Belirtilen çekirdek için paketleri indir"
+
+#: src/Common/LinuxKernel.vala:1198
+#, c-format
+msgid "Downloading"
+msgstr "İndiriliyor"
+
+#: src/Utility/TeeJee.Logging.vala:89
+msgid "E"
+msgstr "H"
+
+#: src/Common/LinuxKernel.vala:1226
+#, c-format
+msgid "ERROR"
+msgstr "HATA"
+
+#: src/Utility/Gtk/GtkHelper.vala:17
+msgid "Error"
+msgstr "Hata"
+
+#: src/Utility/TeeJee.FileSystem.vala:221
+msgid "Failed to copy file"
+msgstr "Dosya kopyalama başarısız"
+
+#: src/Utility/TeeJee.FileSystem.vala:359
+msgid "Failed to create dir"
+msgstr "Dizin oluşturma başarısız"
+
+#: src/Utility/TeeJee.FileSystem.vala:106
+msgid "Failed to delete file"
+msgstr "Dosya silme başarısız"
+
+#: src/Utility/TeeJee.FileSystem.vala:253
+msgid "Failed to move file"
+msgstr "Dosya taşıma başarısız"
+
+#: src/Utility/TeeJee.FileSystem.vala:162
+msgid "Failed to read file"
+msgstr "Dosya okuma başarısız"
+
+#: src/Utility/TeeJee.FileSystem.vala:197
+msgid "Failed to write file"
+msgstr "Dosya yazma başarısız"
+
+#: src/Common/LinuxKernel.vala:396
+msgid "Fetching index from kernel.ubuntu.com..."
+msgstr "İçerik listesi kernel.ubuntu.com alanından alınıyor..."
+
+#: src/Common/LinuxKernel.vala:353
+msgid "Fetching index..."
+msgstr "İçerik dizini alınıyor..."
+
+#: src/Utility/TeeJee.FileSystem.vala:210
+#: src/Utility/TeeJee.FileSystem.vala:213
+msgid "File copied"
+msgstr "Dosya kopyalandı"
+
+#: src/Utility/TeeJee.FileSystem.vala:97 src/Utility/TeeJee.FileSystem.vala:100
+msgid "File deleted"
+msgstr "Dosya silindi"
+
+#: src/Utility/TeeJee.FileSystem.vala:662
+#: src/Utility/TeeJee.FileSystem.vala:711
+msgid "File is missing"
+msgstr "Dosya eksik"
+
+#: src/Utility/TeeJee.FileSystem.vala:245
+#: src/Utility/TeeJee.FileSystem.vala:248
+msgid "File moved"
+msgstr "Dosya taşındı"
+
+#: src/Utility/TeeJee.FileSystem.vala:231
+#: src/Utility/TeeJee.FileSystem.vala:538
+msgid "File not found"
+msgstr "Dosya bulunamadı"
+
+#: src/Common/Package.vala:126 src/Common/Package.vala:188
+#, c-format
+msgid "File not found: %s"
+msgstr "Şu dosya bulunamadı: %s"
+
+#: src/Utility/TeeJee.FileSystem.vala:187
+#: src/Utility/TeeJee.FileSystem.vala:190
+msgid "File saved"
+msgstr "Dosya kaydedildi"
+
+#: src/Gtk/SettingsDialog.vala:180
+msgid "Hide kernels older than 4.0"
+msgstr "4.0 sürümden düşük çekirdekleri gizle"
+
+#: src/Gtk/SettingsDialog.vala:169
+msgid "Hide unstable and RC releases"
+msgstr "Kararsız ve RC sürümleri gizle"
+
+#: src/Gtk/SettingsDialog.vala:152
+msgid "Hour(s)"
+msgstr "Saat"
+
+#: src/Gtk/UpdateNotificationWindow.vala:168
+msgid "Ignore this update"
+msgstr "Bu güncellemeyi yoksay"
+
+#: src/Common/LinuxKernel.vala:259
+msgid "Index is fresh"
+msgstr "İçerik listesi güncel"
+
+#: src/Common/LinuxKernel.vala:256
+msgid "Index is stale"
+msgstr "İçerik listesi eski"
+
+#: src/Gtk/UpdateNotificationWindow.vala:147 src/Gtk/MainWindow.vala:359
+msgid "Install"
+msgstr "Kur"
+
+#: src/Common/LinuxKernel.vala:794
+#, c-format
+msgid "Install Linux v%s ? (y/n): "
+msgstr "Linux v%s Kur ? (e/h): "
+
+#: src/Console/AppConsole.vala:89
+msgid "Install latest mainline kernel"
+msgstr "En son mainline çekirdeğini kur"
+
+#: src/Console/AppConsole.vala:90
+msgid "Install latest point update for current series"
+msgstr "Mevcut çekirdek serisi için en güncelleme noktasını kur"
+
+#: src/Console/AppConsole.vala:91
+msgid "Install specified mainline kernel"
+msgstr "Belirtilen mainline çekirdeğini kur"
+
+#: src/Gtk/UpdateNotificationWindow.vala:148
+msgid "Install this kernel"
+msgstr "Bu çekirdeği kur"
+
+#: src/Common/LinuxKernel.vala:1272
+msgid "Installation completed with errors"
+msgstr "Kurulum hatalarla tamamlandı"
+
+#: src/Common/LinuxKernel.vala:1269
+msgid "Installation completed. A reboot is required to use the new kernel."
+msgstr ""
+"Kurulum tamamlandı. Yeni çekirdeği kullanmak için yeniden başlatma gerekiyor."
+
+#: src/Common/LinuxKernel.vala:1169 src/Gtk/MainWindow.vala:208
+msgid "Installed"
+msgstr "Kurulu"
+
+#: src/Gtk/MainWindow.vala:350 src/Gtk/MainWindow.vala:550
+#: src/Gtk/MainWindow.vala:686 src/Utility/TeeJee.System.vala:281
+msgid "Internet connection is not active"
+msgstr "İnternet bağlantısı aktif değil"
+
+#: src/Gtk/SettingsDialog.vala:212
+msgid "Internet connection timeout in "
+msgstr "İnternet bağlantısı zaman aşımı "
+
+#: src/Gtk/MainWindow.vala:150
+msgid "Kernel"
+msgstr "Çekirdek"
+
+#: src/Gtk/MainWindow.vala:534
+msgid "Kernel upgrade utility for Ubuntu-based distributions"
+msgstr "Ubuntu tabanlı dağıtımlar için çekirdek güncelleme aracı"
+
+#: src/Common/LinuxKernel.vala:776 src/Console/AppConsole.vala:367
+#, c-format
+msgid "Latest point update"
+msgstr "Son güncelleme noktası"
+
+#: src/Common/LinuxKernel.vala:765 src/Console/AppConsole.vala:360
+#, c-format
+msgid "Latest update"
+msgstr "Son güncelleme"
+
+#: src/Console/AppConsole.vala:87
+msgid "List all available mainline kernels"
+msgstr "Tüm mainline çekirdeklerini listele"
+
+#: src/Gtk/UpdateNotificationWindow.vala:158
+msgid "List available kernels"
+msgstr "Tüm çekirdekleri listele"
+
+#: src/Console/AppConsole.vala:88
+msgid "List installed kernels"
+msgstr "Kurulu çekirdekleri listele"
+
+#: src/Utility/Gtk/GtkHelper.vala:93
+msgid "Missing Icon"
+msgstr "Eksik Simge"
+
+#: src/Gtk/MainWindow.vala:368
+msgid "Multiple Kernels Selected"
+msgstr "Çoklu Çekirdek Seçildi"
+
+#: src/Console/AppConsole.vala:291
+msgid "Multiple kernels selected for installation. Select only one."
+msgstr "Kurulum için çoklu çekirdek seçildi. Sadece bir tane seçiniz."
+
+#: src/Utility/Gtk/CustomMessageDialog.vala:160
+msgid "No"
+msgstr "Hayır"
+
+#: src/Gtk/MainWindow.vala:350 src/Gtk/MainWindow.vala:550
+#: src/Gtk/MainWindow.vala:686
+msgid "No Internet"
+msgstr "İnternet Yok"
+
+#: src/Console/AppConsole.vala:285 src/Console/AppConsole.vala:322
+msgid "No kernels specified"
+msgstr "Belirtilen çekirdek yok"
+
+#: src/Common/LinuxKernel.vala:784 src/Console/AppConsole.vala:372
+#: src/Console/AppConsole.vala:430 src/Gtk/MainWindow.vala:796
+msgid "No updates found"
+msgstr "Güncelleme bulunamadı"
+
+#: src/Gtk/MainWindow.vala:371 src/Gtk/MainWindow.vala:382
+msgid "Not Selected"
+msgstr "Seçilen Yok"
+
+#: src/Gtk/SettingsDialog.vala:66
+msgid "Notification"
+msgstr "Bildirim"
+
+#: src/Gtk/SettingsDialog.vala:73
+msgid "Notify if a major release is available"
+msgstr "Ana sürüm mevcutsa bildir"
+
+#: src/Gtk/SettingsDialog.vala:84
+msgid "Notify if a point release is available"
+msgstr "Ara sürüm mevcutsa bildir"
+
+#: src/Common/LinuxKernel.vala:1217
+#: src/Utility/Gtk/CustomMessageDialog.vala:150
+#: src/Utility/Gtk/CustomMessageDialog.vala:154
+#, c-format
+msgid "OK"
+msgstr "TAMAM"
+
+#: src/Console/AppConsole.vala:98 src/Gtk/AppGtk.vala:181
+msgid "Options"
+msgstr "Seçenekler"
+
+#: src/Gtk/SettingsDialog.vala:191
+msgid "Other"
+msgstr "Diğer"
+
+#: src/Common/LinuxKernel.vala:1060
+#, c-format
+msgid "Packages Available"
+msgstr "Mevcut Paketler"
+
+#: src/Common/LinuxKernel.vala:1068
+#, c-format
+msgid "Packages Installed"
+msgstr "Paketler Kuruldu"
+
+#: src/Common/Main.vala:106
+msgid "Please install required packages and try again"
+msgstr "Lütfen gerekli paketleri yükleyin ve tekrar deneyin"
+
+#: src/Common/LinuxKernel.vala:1293
+msgid "Preparing to remove selected kernels"
+msgstr "Seçilen çekirdekleri kaldırmak için hazırlanıyor"
+
+#: src/Gtk/AppGtk.vala:183
+msgid "Print debug information"
+msgstr "Hata ayıklama bilgisini yazdır"
+
+#: src/Gtk/MainWindow.vala:425
+msgid "Purge"
+msgstr "Temizle"
+
+#: src/Gtk/MainWindow.vala:343
+msgid "Refresh"
+msgstr "Yenile"
+
+#: src/Gtk/MainWindow.vala:569
+msgid "Refreshing..."
+msgstr "Yenileniyor..."
+
+#: src/Gtk/MainWindow.vala:376
+msgid "Remove"
+msgstr "Sil"
+
+#: src/Console/AppConsole.vala:95 src/Console/AppConsole.vala:100
+msgid "Remove files from application cache"
+msgstr "Dosyaları uygulama önbelleğinden sil"
+
+#: src/Console/AppConsole.vala:93 src/Gtk/MainWindow.vala:426
+msgid "Remove installed kernels older than running kernel"
+msgstr "Çalışan çekirdekten eski olan kurulu çekirdekleri kaldır"
+
+#: src/Console/AppConsole.vala:92
+msgid "Remove specified kernel"
+msgstr "Belirtilen çekirdeği kaldır"
+
+#: src/Console/AppConsole.vala:199 src/Console/AppConsole.vala:313
+#: src/Console/AppConsole.vala:342
+msgid "Run '"
+msgstr "Çalıştır '"
+
+#: src/Console/AppConsole.vala:117
+msgid "Run the application as admin with pkexec or sudo."
+msgstr "Bu uygulamayı pkexec yada sudo ile yönetici haklarıyla çalıştırın."
+
+#: src/Common/LinuxKernel.vala:1169 src/Gtk/MainWindow.vala:208
+msgid "Running"
+msgstr "Çalışıyor"
+
+#: src/Gtk/MainWindow.vala:368
+msgid "Select a single kernel to install"
+msgstr "Kurulum için tek çekirdek seçin"
+
+#: src/Gtk/MainWindow.vala:371
+msgid "Select the kernel to install"
+msgstr "Kurulum için çekirdek seçin"
+
+#: src/Gtk/MainWindow.vala:382
+msgid "Select the kernels to remove"
+msgstr "Kaldırma için çekirdek seçin"
+
+#: src/Common/LinuxKernel.vala:1288
+msgid ""
+"Selected kernel is currently running and cannot be removed.\n"
+" Install another kernel before removing this one."
+msgstr ""
+"Seçilen çekirdek şu anda çalışıyor ve kaldırılamıyor.\n"
+" Bunu kaldırmadan önce başka bir çekirdek yükleyin."
+
+#: src/Gtk/SettingsDialog.vala:56 src/Gtk/MainWindow.vala:475
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: src/Gtk/UpdateNotificationWindow.vala:157
+msgid "Show"
+msgstr "Göster"
+
+#: src/Gtk/AppGtk.vala:184
+msgid "Show all options"
+msgstr "Tüm seçenekleri göster"
+
+#: src/Gtk/SettingsDialog.vala:95
+msgid "Show notification bubble on desktop"
+msgstr "Masaüstünde bildirim baloncuğu göster"
+
+#: src/Gtk/SettingsDialog.vala:106
+msgid "Show notification dialog"
+msgstr "Bildirim iletişimini göster"
+
+#: src/Console/AppConsole.vala:96
+msgid "Show unstable and RC releases"
+msgstr "Kararsız ve RC sürümleri göster"
+
+#: src/Gtk/SettingsDialog.vala:199
+msgid "Skip internet connection check"
+msgstr "İnternet bağlantı kontrolünü atla"
+
+#: src/Gtk/MainWindow.vala:196
+msgid "Status"
+msgstr "Durum"
+
+#: src/Utility/TeeJee.Process.vala:513
+msgid "Stopped"
+msgstr "Durduruldu"
+
+#: src/Console/AppConsole.vala:81 src/Gtk/AppGtk.vala:179
+msgid "Syntax"
+msgstr "Sözdizimi"
+
+#: src/Console/AppConsole.vala:205 src/Gtk/AppGtk.vala:111
+msgid "Temp"
+msgstr "Geçici"
+
+#: src/Common/LinuxKernel.vala:730
+#, c-format
+msgid "The following kernels will be removed:"
+msgstr "Aşağıdaki çekirdekler silinecek:"
+
+#: src/Utility/Gtk/AboutWindow.vala:330
+#, c-format
+msgid "Third Party Tools"
+msgstr "Üçüncü Parti Araçlar"
+
+#: src/Common/LinuxKernel.vala:1240 src/Gtk/MainWindow.vala:681
+msgid "This kernel is already installed."
+msgstr "Bu çekirdek zaten kurulu."
+
+#: src/Common/LinuxKernel.vala:1341
+msgid ""
+"This kernel is currently running and cannot be removed.\n"
+" Install another kernel before removing this one."
+msgstr ""
+"Bu çekirdek şu anda çalışıyor ve bu sebeple kaldırılamaz.\n"
+"Bunu kaldırmadan önce başka bir çekirdek yükleyin."
+
+#: src/Utility/Gtk/AboutWindow.vala:346
+#, c-format
+msgid "Translators"
+msgstr "Çevirenler"
+
+#: src/Common/LinuxKernel.vala:1325 src/Common/LinuxKernel.vala:1378
+msgid "Un-install completed"
+msgstr "Kaldırma tamamlandı"
+
+#: src/Common/LinuxKernel.vala:1328 src/Common/LinuxKernel.vala:1381
+msgid "Un-install completed with errors"
+msgstr "Kaldırma hatalarla tamamlandı"
+
+#: src/Console/AppConsole.vala:197 src/Gtk/AppGtk.vala:166
+msgid "Unknown option"
+msgstr "Bilinmeyen seçenek"
+
+#: src/Gtk/MainWindow.vala:179
+msgid "Version"
+msgstr "Sürüm"
+
+#: src/Utility/TeeJee.Logging.vala:89
+msgid "W"
+msgstr "U"
+
+#: src/Gtk/SettingsDialog.vala:156
+msgid "Week(s)"
+msgstr "Hafta"
+
+#: src/Utility/Gtk/CustomMessageDialog.vala:159
+msgid "Yes"
+msgstr "Evet"
+
+#: src/Utility/AppLock.vala:56
+msgid "[Warning] Deleted invalid lock"
+msgstr "[Uyarı] Geçersiz kilit silindi"
+
+#: src/Gtk/SettingsDialog.vala:226
+msgid "seconds"
+msgstr "saniye"

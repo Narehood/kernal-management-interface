@@ -17,8 +17,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
- *
- *
  */
 
 using GLib;
@@ -35,13 +33,15 @@ using TeeJee.System;
 using TeeJee.Misc;
 
 public Main App;
-public const string AppName = "Ubuntu Kernel Update Utility";
-public const string AppShortName = "ukuu";
-public const string AppVersion = "18.9.3";
-public const string AppAuthor = "Tony George";
-public const string AppAuthorEmail = "teejeetech@gmail.com";
 
-const string GETTEXT_PACKAGE = "";
+[CCode(cname="BRANDING_SHORTNAME")] extern const string BRANDING_SHORTNAME;
+[CCode(cname="BRANDING_LONGNAME")] extern const string BRANDING_LONGNAME;
+[CCode(cname="BRANDING_VERSION")] extern const string BRANDING_VERSION;
+[CCode(cname="BRANDING_AUTHORNAME")] extern const string BRANDING_AUTHORNAME;
+[CCode(cname="BRANDING_AUTHOREMAIL")] extern const string BRANDING_AUTHOREMAIL;
+[CCode(cname="BRANDING_WEBSITE")] extern const string BRANDING_WEBSITE;
+public const string ICON_DIR = BRANDING_SHORTNAME;
+
 const string LOCALE_DIR = "/usr/share/locale";
 
 public class AppGtk : GLib.Object {
@@ -50,11 +50,11 @@ public class AppGtk : GLib.Object {
 		
 		set_locale();
 
-		log_msg("%s v%s".printf(AppShortName, AppVersion));
+		log_msg("%s v%s".printf(BRANDING_SHORTNAME, BRANDING_VERSION));
 
 		Gtk.init(ref args);
 
-		init_tmp("ukuu-gtk");
+		init_tmp(BRANDING_SHORTNAME+"-gtk");
 		
 		//check_if_admin();
 
@@ -99,11 +99,10 @@ public class AppGtk : GLib.Object {
 	}
 
 	private static void set_locale() {
-		
-		Intl.setlocale(GLib.LocaleCategory.MESSAGES, "ukuu");
-		Intl.textdomain(GETTEXT_PACKAGE);
-		Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
-		Intl.bindtextdomain(GETTEXT_PACKAGE, LOCALE_DIR);
+		Intl.setlocale(GLib.LocaleCategory.MESSAGES, BRANDING_SHORTNAME);
+		Intl.textdomain(BRANDING_SHORTNAME);
+		Intl.bind_textdomain_codeset(BRANDING_SHORTNAME, "utf-8");
+		Intl.bindtextdomain(BRANDING_SHORTNAME, LOCALE_DIR);
 	}
 
 	public static bool parse_arguments(string[] args) {
@@ -175,9 +174,9 @@ public class AppGtk : GLib.Object {
 
 	public static string help_message() {
 		
-		string msg = "\n" + AppName + " v" + AppVersion + " by Tony George (teejeetech@gmail.com)" + "\n";
+		string msg = "\n" + BRANDING_SHORTNAME + " v" + BRANDING_VERSION + " - " + BRANDING_LONGNAME + "\n";
 		msg += "\n";
-		msg += _("Syntax") + ": ukuu-gtk [options]\n";
+		msg += _("Syntax") + ": " + BRANDING_SHORTNAME + "-gtk [options]\n";
 		msg += "\n";
 		msg += _("Options") + ":\n";
 		msg += "\n";

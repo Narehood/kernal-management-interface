@@ -1,3 +1,81 @@
+mainline (1.0.1) UNRELEASED; urgency=medium
+
+  * Disabled buggy progress bar
+  * Add missing translators on credits window
+  * Makefile:
+    - Use one variable style everywhere
+    - Only regenerate .pot file if any source files changed
+    - Only regenerate .po files if .pot file changed
+    - Only rebuild .deb if any files changed
+    - Automatically run dch to edit debian/changelog when needed
+    - New $(BUILD_NUMBER) for deb filename
+    - New target "release_deb"
+      o automatic increment build number
+      o automatic reset build number when pkg_version changes
+      o unconditional full "make clean deb" every time
+      Allows to generate updated deb files with icrementing filenames without having to update pkg version
+    - Get most targets other than "release_deb" to properly do nothing unless something actually changed.
+      Example, run "make deb" twice in a row with no changes, the 2nd one will say "nothing to do"
+    The Makefile is now officially more feature rich and robust than the application itself ¯\_(ツ)_/¯
+  * Desktop icon fix for Wayland from Hugo Posnic <hugo.posnic@gmail.com>
+  * Ukranian translation - github:cappelikan
+
+ -- Brian K. White <bw.aljex@gmail.com>  Wed, 11 Sep 2019 16:21:50 -0400
+
+mainline (1.0.0) disco; urgency=medium
+
+  * Rename project from "ukuu" to "mainline"
+  * Start version number over at 1.0.0
+  * Much reoganizing of source files
+  * Removed confliciting LICENCE.md, COPYING, and text in debian/copyright
+    COPYING had GPL3
+    LICENSE.md had LGPL2
+    debian/copyright had GPL2+
+    Asserting only GPL3 going forward
+  * Reformatted AUTHORS file per gnu.org example
+
+ -- Brian K. White <bw.aljex@gmail.com>  Sat, 16 Mar 2019 04:34:40 -0400
+
+ukuu (18.9.5-bkw) disco; urgency=medium
+  * More un-hardcoding branding/name/maintainer strings in source files
+    ukuu.desktop, debian/control, debian/copyright, ukuu.policy all generated from BRANDING.mak
+  * Remove build-deb.sh and build-source.sh
+    Now we have "make deb"
+  * Removed some more source cruft, stuff we aren't using from TeeJee utilities
+  * Updated the Spanish translation just from google translate.
+  * Remove ukuu-uninstall
+  * Make aria2 retry a few times
+  * Remove pointless curl dependency by using aria2c for connection test
+
+ -- Brian K. White <bw.aljex@gmail.com>  Wed, 13 Mar 2019 2:35:02 -0500
+
+ukuu (18.9.4-bkw) disco; urgency=medium
+  * Removed all grub options
+  * Fix formatting in per-kernel package list tooltip
+  * Clean up README.md
+  * Removed build-installers.sh and other references to sanity *.run installers
+  * Relocate config.json & ukuu-notify.sh to .config/ukuu/ dir
+  * Moved branding to BRANDING.mak so other scripts can read it too
+  * Removed all hard-coding from build-deb.sh & build-source.sh
+  * Turkish translation (github/kelebek333)
+  * Remove misc cruft
+
+ -- Brian K. White <bw.aljex@gmail.com>  Mon, 11 Mar 2019 17:50:38 -0500
+
+
+ukuu (18.9.3-bkw) cosmic; urgency=medium
+
+  * Fork from http://github.com/stevenpowerd/ukuu
+  * Merge http://github.com/cloyce/ukuu
+  * Remove references to paid version
+  * Remove donation window and other donation links
+  * Fix compile error
+  * Update Readme.md
+  * Branding - Change all branding strings to variables derived from makefile
+
+ -- Brian K. White <bw.aljex@gmail.com>  Fri, 8 Mar 2019 22:57:57 -0500
+
+
 ukuu (18.9.3) xenial; urgency=medium
 
   * Fix build issue
@@ -159,15 +237,15 @@ ukuu (16.12) trusty; urgency=medium
   * Remove startup scripts when application is uninstalled
 
  -- Tony George <tony.george.kol@gmail.com>  Wed, 7 Dec 2016 10:00:00 +0530
- 
- 
+
+
 ukuu (16.11.1) trusty; urgency=medium
 
   * Fixed build for xenial: Added dependency for 'valac'
 
  -- Tony George <tony.george.kol@gmail.com>  Sun, 27 Nov 2016 10:00:00 +0530
 
- 
+
 ukuu (16.11) trusty; urgency=medium
 
   * Changed main window layout

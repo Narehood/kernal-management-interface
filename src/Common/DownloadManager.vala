@@ -6,7 +6,7 @@ using TeeJee.Misc;
 
 
 public class DownloadTask : AsyncTask{
-	
+
 	// settings
 	public bool status_in_kb = false;
 	public int connect_timeout_secs = 60;
@@ -18,7 +18,6 @@ public class DownloadTask : AsyncTask{
 	private Gee.HashMap<string, DownloadItem> map;
 
 	private Gee.HashMap<string,Regex> regex = null;
-	private static TeeJee.Version tool_version = null;
 
 	public DownloadTask(){
 
@@ -44,38 +43,8 @@ public class DownloadTask : AsyncTask{
 		catch (Error e) {
 			log_error (e.message);
 		}
-
-		check_tool_version();
 	}
 
-	public static void check_tool_version(){
-
-		if (tool_version != null){
-			return;
-		}
-
-		log_debug("DownloadTask: check_tool_version()");
-		
-		string std_out, std_err;
-		
-		string cmd = "aria2c --version";
-
-		log_debug(cmd);
-		
-		exec_script_sync(cmd, out std_out, out std_err);
-
-		string line = std_out.split("\n")[0];
-		var arr = line.split(" ");
-		if (arr.length >= 3){
-			string part = arr[2].strip();
-			tool_version = new TeeJee.Version(part);
-			log_msg("aria2c version: %s".printf(tool_version.version));
-		}
-		else{
-			tool_version = new TeeJee.Version("1.19"); // assume
-		}
-	}
-	
 	// execution ----------------------------
 
 	public void add_to_queue(DownloadItem item){
@@ -98,7 +67,7 @@ public class DownloadTask : AsyncTask{
 		downloads.clear();
 		map.clear();
 	}
-	
+
 	public void execute() {
 
 		prepare();
@@ -106,8 +75,6 @@ public class DownloadTask : AsyncTask{
 		begin();
 
 		if (status == AppStatus.RUNNING){
-			
-			
 		}
 	}
 
@@ -117,47 +84,32 @@ public class DownloadTask : AsyncTask{
 	}
 
 	private string build_script() {
-		string cmd = "";
-		
-		var command = "wget";
-		var cmd_path = get_cmd_path ("aria2c");
-		if ((cmd_path != null) && (cmd_path.length > 0)) {
-			command = "aria2c";
-		}
 
-		if (command == "aria2c"){
-			string list = "";
-			string list_file = path_combine(working_dir, "download.list");
-			foreach(var item in downloads){
-				list += "%s\n".printf(item.source_uri);
-				list += "  gid=%s\n".printf(item.gid);
-				list += "  dir=%s\n".printf(item.partial_dir);
-				list += "  out=%s\n".printf(item.file_name);
-			}
-			file_write(list_file, list);
-			log_debug("saved download list: %s".printf(list_file));
-			
-			cmd += "aria2c";
-			cmd += " -i '%s'".printf(escape_single_quote(list_file));
-			cmd += " --show-console-readout=false";
-			cmd += " --summary-interval=1";
-			cmd += " --auto-save-interval=1"; // save aria2 control file every sec
-			cmd += " --human-readable=false";
-
-			if (tool_version.is_minimum("1.19")){
-				cmd += " --enable-color=false"; // enabling color breaks the output parsing
-			}
-			
-			cmd += " --allow-overwrite";
-			cmd += " --connect-timeout=%d".printf(connect_timeout_secs);
-			cmd += " --timeout=%d".printf(timeout_secs);
-			cmd += " --max-concurrent-downloads=%d".printf(concurrent_downloads);
-			//cmd += " --continue"; // never use - this is for continuing files downloaded sequentially by web browser and other programs
-			//cmd += " --optimize-concurrent-downloads=true"; // not supported by all versions
-			//cmd += " -l download.log"; // too much logging
-			//cmd += " --direct-file-mapping=false"; // not required
-			//cmd += " --dry-run";
+		string list = "";
+		string list_file = path_combine(working_dir, "download.list");
+		foreach(var item in downloads){
+			list += "%s\n".printf(item.source_uri);
+			list += "  gid=%s\n".printf(item.gid);
+			list += "  dir=%s\n".printf(item.partial_dir);
+			list += "  out=%s\n".printf(item.file_name);
 		}
+		file_write(list_file, list);
+		log_debug("saved download list: %s".printf(list_file));
+
+		string cmd = "aria2c";
+		cmd += " --no-netrc true";
+		cmd += " -i '%s'".printf(escape_single_quote(list_file));
+		cmd += " --show-console-readout=false";
+		cmd += " --summary-interval=1";
+		cmd += " --auto-save-interval=1";
+		cmd += " --human-readable=false";
+		cmd += " --enable-color=false";
+		cmd += " --allow-overwrite";
+		cmd += " --connect-timeout=%d".printf(connect_timeout_secs);
+		cmd += " --timeout=%d".printf(timeout_secs);
+		cmd += " --max-concurrent-downloads=%d".printf(concurrent_downloads);
+		cmd += " --max-file-not-found=3";
+		cmd += " --retry-wait=2";
 
 		log_debug(cmd);
 
@@ -168,15 +120,15 @@ public class DownloadTask : AsyncTask{
 		if (is_terminated) {
 			return;
 		}
-		
+
 		update_progress_parse_console_output(out_line);
 	}
-	
+
 	public override void parse_stderr_line(string err_line){
 		if (is_terminated) {
 			return;
 		}
-		
+
 		update_progress_parse_console_output(err_line);
 	}
 
@@ -188,7 +140,7 @@ public class DownloadTask : AsyncTask{
 		//log_debug(line);
 
 		MatchInfo match;
-		
+
 		if (regex["file-complete"].match(line, 0, out match)) {
 			//log_debug("match: file-complete: " + line);
 			prg_count++;
@@ -198,10 +150,10 @@ public class DownloadTask : AsyncTask{
 			//8ae3a3|OK  |    16KiB/s|/home/teejee/.cache/ukuu/v4.0.7-wily/index.html
 
 			//log_debug("match: file-status: " + line);
-			
+
 			// always display
 			//log_debug(line);
-			
+
 			string gid_key = match.fetch(1).strip();
 			string status = match.fetch(2).strip();
 			int64 rate = int64.parse(match.fetch(3).strip());
@@ -243,12 +195,12 @@ public class DownloadTask : AsyncTask{
 		else {
 			//log_debug("unmatched: '%s'".printf(line));
 		}
-		
+
 		return true;
 	}
 
 	protected override void finish_task(){
-		
+
 		verify();
 
 		dir_delete(working_dir);
@@ -257,7 +209,7 @@ public class DownloadTask : AsyncTask{
 	private void verify() {
 
 		log_debug("verify()");
-		
+
 		foreach(var item in downloads){
 
 			if (!file_exists(item.file_path_partial)){
@@ -266,7 +218,7 @@ public class DownloadTask : AsyncTask{
 			}
 
 			//log_msg("status=%s".printf(item.status));
-			
+
 			if (item.status == "OK"){
 				file_move(item.file_path_partial, item.file_path);
 			}
@@ -294,7 +246,7 @@ public class DownloadItem : GLib.Object
 	 * after successful completion. File will always be saved with
 	 * the specified name 'file_name' instead of the source file name.
 	 * */
-	 
+
 	public string file_name = "";
 	public string download_dir = "";
 	public string partial_dir = "";
@@ -308,7 +260,7 @@ public class DownloadItem : GLib.Object
 	public string status = "";
 
 	public DownloadTask task = null;
-	
+
 	public string file_path{
 		owned get{
 			return path_combine(download_dir, file_name);
@@ -336,7 +288,7 @@ public class DownloadItem : GLib.Object
 	}
 
 	public string status_line(){
-		
+
 		if (task.status_in_kb){
 			return "%s / %s, %s/s (%s)".printf(
 				format_file_size(bytes_received, false, "", true, 1),

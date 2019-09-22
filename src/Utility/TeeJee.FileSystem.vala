@@ -21,7 +21,7 @@
  *
  *
  */
- 
+
 namespace TeeJee.FileSystem{
 
 	/* Convenience functions for handling files and directories */
@@ -714,23 +714,6 @@ namespace TeeJee.FileSystem{
 		return false;
 	}
 
-	// hashing -----------
-	
-	private string hash_md5(string path){
-		Checksum checksum = new Checksum (ChecksumType.MD5);
-		FileStream stream = FileStream.open (path, "rb");
-
-		uint8 fbuf[100];
-		size_t size;
-		while ((size = stream.read (fbuf)) > 0){
-		  checksum.update (fbuf, size);
-		}
-		
-		unowned string digest = checksum.get_string();
-
-		return digest;
-	}
-
 	// misc --------------------
 
 	public string format_file_size (
@@ -769,7 +752,7 @@ namespace TeeJee.FileSystem{
 			}
 		}
 		else{
-			txt += "%'0lld".printf(size);
+			txt += "%'0lu".printf(size);
 			if (show_units){
 				txt += " B";
 			}
@@ -815,17 +798,5 @@ namespace TeeJee.FileSystem{
 	    }
 
 	    return filePath2;
-	}
-
-	public int rsync (string sourceDirectory, string destDirectory, bool updateExisting, bool deleteExtra){
-
-		/* Sync files with rsync */
-
-		string cmd = "rsync -avh";
-		cmd += updateExisting ? "" : " --ignore-existing";
-		cmd += deleteExtra ? " --delete" : "";
-		cmd += " '%s'".printf(escape_single_quote(sourceDirectory) + "//");
-		cmd += " '%s'".printf(escape_single_quote(destDirectory));
-		return exec_sync (cmd, null, null);
 	}
 }

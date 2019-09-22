@@ -21,7 +21,8 @@
  *
  *
  */
- 
+
+// FIXME - Stop creating temp dirs and files just to execute shell commands.
 namespace TeeJee.ProcessHelper{
 	using TeeJee.Logging;
 	using TeeJee.FileSystem;
@@ -448,13 +449,13 @@ namespace TeeJee.ProcessHelper{
 		 * */
 
 		int[] child_pids = get_process_children (process_pid);
-		Posix.kill (process_pid, Posix.SIGTERM);
+		Posix.kill (process_pid, Posix.Signal.TERM);
 
 		if (killChildren){
 			Pid childPid;
 			foreach (long pid in child_pids){
 				childPid = (Pid) pid;
-				Posix.kill (childPid, Posix.SIGTERM);
+				Posix.kill (childPid, Posix.Signal.TERM);
 			}
 		}
 	}
@@ -467,13 +468,13 @@ namespace TeeJee.ProcessHelper{
 		 * */
 		
 		int[] child_pids = get_process_children (process_pid);
-		Posix.kill (process_pid, Posix.SIGKILL);
+		Posix.kill (process_pid, Posix.Signal.KILL);
 
 		if (killChildren){
 			Pid childPid;
 			foreach (long pid in child_pids){
 				childPid = (Pid) pid;
-				Posix.kill (childPid, Posix.SIGKILL);
+				Posix.kill (childPid, Posix.Signal.KILL);
 			}
 		}
 	}

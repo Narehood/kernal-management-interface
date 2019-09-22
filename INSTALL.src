@@ -26,13 +26,13 @@ deb filename increments with every run, either by build number or by pkg version
 
 Build just the console app
 
-  make mainline
+  make BRANDING_SHORTNAME
 
 --------------------------------------------------------------------------------
 
 Build just the GUI app
 
-  make mainline-gtk
+  make BRANDING_SHORTNAME-gtk
 
 --------------------------------------------------------------------------------
 
