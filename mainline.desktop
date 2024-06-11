@@ -1,12 +1,12 @@
 [Desktop Entry]
-Name=Ubuntu Mainline Kernel Installer
+Name=Mainline Kernels
 MimeType=
 Exec=mainline-gtk
 Type=Application
-GenericName=Ubuntu Mainline Kernel Installer
+GenericName=Mainline Kernels
 Terminal=false
 Icon=mainline
-Comment=Ubuntu Mainline Kernel Installer
-X-KDE-StartupNotify=false
+Comment=Mainline Kernels
+StartupNotify=true;
 Categories=System;
 StartupWMClass=mainline-gtk

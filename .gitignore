@@ -1,9 +1,12 @@
-mainline
-mainline-gtk
-release
+/mainline
+/mainline-gtk
+/release
+.deb_build_number.mak
 *.c
 *.o
 *~
 .git
 *.swp
 .#*
+.idea/
+.vscode/

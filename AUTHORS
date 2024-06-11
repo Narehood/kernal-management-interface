@@ -1,4 +1,11 @@
-Tony George		first version of all files
-Steven G		revisions to SettingsDialog.vala Main.vala TeeJee.System.vala
-Cloyce D. Spradling	revisions to LinuxKernel.vala AppConsole.vala
-Brian K. White		revisions to many files
+Brian K. White      forked "ukuu" to "mainline" 2019-present
+Tony George         "ukuu" original author
+shg8@github         net connection check
+cloyce@github       rc kernels option
+LucasChollet@github improve thread management
+
+Inclusions:
+	notice.sh https://github.com/bkw777/notice.sh
+
+Translators:
+	see file TRANSLATORS

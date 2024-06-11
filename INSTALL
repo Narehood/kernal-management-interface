@@ -1,104 +1,55 @@
 Build:
-
   make
+  or
+  make clean all
 
 Install:
-
   sudo make install
 
 Unininstall:
-
   sudo make uninstall
 
-
-Other build targets:
 --------------------------------------------------------------------------------
 
-Generate a .deb package, for release
+deb packages:
 
-Updates .deb_pkg_version.mak
-Unconditional full clean & build everytime
-deb filename increments with every run, either by build number or by pkg version
+Install pbuilder-dist:
+  sudo apt install pbuilder-dist
 
-  make release_deb
+To create the deb build environment, run one time only.
+  make deb_env_create
 
---------------------------------------------------------------------------------
+To update the build environment, run as needed.
+  make deb_env_update
 
-Build just the console app
-
-  make mainline
-
---------------------------------------------------------------------------------
-
-Build just the GUI app
-
-  make mainline-gtk
-
---------------------------------------------------------------------------------
-
-Generate a .deb package, for local repeated re-building
-
-Does not update .deb_pkg_version.mak
-Only builds if not yet built or if any source files changed
-deb filename does not increment
-
+To (re)build a deb without incrementing build number or doing make clean.
   make deb
 
---------------------------------------------------------------------------------
+To build a deb for release. Increments build number and does clean before build.
+  make release_deb
+
+For any of the deb-related build targets, you may also build for some other target
+distribution by adding "dist=<dist>" and/or "arch=<arch>" to the end of the command.
+
+So, to build a deb for xenial (if you're not running xenial),
+first, one-time setup
+  make deb_env_create dist=xenial
+then
+  make deb dist=xenial
 
 Install the currently built deb
 Allows to install built deb without having to know it's long path & filename
 Already includes sudo, don't need "sudo make install-deb"
-
   make install-deb
-
---------------------------------------------------------------------------------
 
 Uninstall any version of deb package that might be installed
 Allows to test "make install" without conflict or ambiguity with installed deb
 Already includes sudo, don't need "sudo make uninstall-deb"
-
   make uninstall-deb
-
---------------------------------------------------------------------------------
-
-Translation files are maintained automatically, but you can regenerate any of
-them manually with "make <filename>"
-All translation files are in the po/ directory, and named <LANG>.po
-The po template is in the po/ directory, and named messages.pot
-
-Regenerate messages.pot
-  make po/messages.pot
-
-Regenerate the Spanish .po file (same for any po/*.po files)
-  make po/es.po
-
---------------------------------------------------------------------------------
-
-The files listed in $(misc_files) are maintained automatically, but you can
-regenerate any of them manually with "make <filename>".
-Examples:
-
-Regenerate README.md from README.md.src
-  make README.md
-
-Regenerate debian/copyright from debian/copyright.src
-  make debian/copyright
-
---------------------------------------------------------------------------------
 
 debian/changelog is maintained automatically (that is, "dch" is called when
 needed, you still have to manually edit once dch launches the editor), but you
 can also update it manually any time.
 This will run "dch" with appropriate commandline options to pre-load the pkg
 name, version number, maintainer name, maintainer email etc.
-
   make changelog
-
---------------------------------------------------------------------------------
-
-Regenerate just the deb source pkg files (*.dsc, *.tar.gz)
-This is usually done automatically.
-
-  make deb-src
-
